@@ -12,6 +12,7 @@ App({
         console.log('获取openid',res)
         if (res.code) {
           wx.request({
+
             url: _this.globalData.server + '/api/v5/mini/getOpenid',
             data: {
               code: res.code,
