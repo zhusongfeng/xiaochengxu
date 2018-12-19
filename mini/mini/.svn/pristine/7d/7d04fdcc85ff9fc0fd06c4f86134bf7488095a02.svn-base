@@ -1,0 +1,9 @@
+<view class='container'>
+  <text class='title'>押金说明</text>
+  <text class="content">网上办理读者证与图书馆办理读者证收费一致，需要缴纳壹佰元人民币作为押金，之后平台会为您开具押金收据。办理退卡时，押金会全额退还。</text>
+  <text class='deposit'>￥{{ecardFee}}</text>
+  <view class='big_bt' bindtap='wxpay'>微信支付</view>
+  <text class="content">不想交付押金，试试支付宝免押金服务吧，只要芝麻信用分达到600就可以免押金办理，点击下面按钮下载书堆儿APP即可申请。</text>
+  <view class='big_bt' bindtap='zhima'>支付宝免押金</view>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>

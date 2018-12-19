@@ -1,0 +1,54 @@
+<view class="container clearfix">
+  <view>
+    <image wx:if="{{hasUserInfo}}" src="{{wxUserInfo.avatarUrl}}" class="userinfo-avatar"></image>
+    <button wx:else 
+      class="userinfo-avatar userinfo-btn"
+      open-type="getUserInfo" 
+      bindgetuserinfo="getUserInfo"
+      >点击获取头像
+    </button>
+  </view>
+  <form class="login-form">
+    <view class="form-item clearfix">
+      <label for="tel" class="input-icon">
+        <image src="../../images/login/icon-iphone@3x.png"></image>
+      </label>
+      <input 
+        id="tel" 
+        type="text"
+        confirm-type="next" 
+        placeholder="输入手机号"
+        placeholder-class="input-placeholder"
+        data-item="tel"
+        value="{{currentUser}}"
+        bindinput="inputLoginData">
+      </input>
+       <view class="arr" wx:if="{{showArr}}" bindtap="toshowlist"><image src='/images/login/img-xiala@3x.png'></image></view>
+          <view class='userListBlock' wx:if="{{showList}}">
+            <view class='userList' wx:key="{{item}}" wx:for="{{userlist}}" data-name="{{item}}" catchtap="inputUser">
+              {{item}}  <icon type="clear" size="15" class='close' data-name="{{item}}" catchtap="removeUser" />
+            </view>
+          </view>
+    </view>
+    <view class="form-item clearfix">
+      <label for="password" class="input-icon">
+        <image src="../../images/login/icon-anquan@3x.png"></image>
+      </label>
+      <input id="password"
+        type="password"
+        confirm-type="next"
+        placeholder="输入密码" 
+        placeholder-class="input-placeholder" 
+        data-item="password"
+        bindinput="inputLoginData">
+      </input>
+    </view>
+    <checkbox-group bindchange="checkboxChange" name="recordUserName">
+          <checkbox class='recordUserName' value="{{userNameCheck.value}}" checked="{{userNameCheck.checked}}"/>{{userNameCheck.text}}
+        </checkbox-group>  
+    <view class="submit-area">
+      <view class="errMsg">{{errMsg}}</view>
+      <button class="btn-primary login-btn" bindtap="login">登录</button>
+    </view>
+  </form>
+</view>

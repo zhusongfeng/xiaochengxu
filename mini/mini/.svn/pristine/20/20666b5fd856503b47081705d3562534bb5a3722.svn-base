@@ -1,0 +1,28 @@
+<view class='container1'>
+  <view class='operate-item'>
+    <view class='operate-title'>
+      <view class='operate-type'>图书借阅</view>
+      <view class='operate-time'>操作时间：06-05 14:00</view>
+    </view>
+    <view class='operate-content'>
+      <view class='book-title'>《解忧杂货铺》</view>
+      <view class='book-title'>《秘密》</view>
+      <view class='address'>铜川市人民医院（铜川市图书馆001号柜）</view>
+      <view class='bookcardNum'>读者证号：6100006660987</view>
+    </view>
+  </view>
+
+  <view class='operate-item'>
+    <view class='operate-title'>
+      <view class='operate-type'>图书归还</view>
+      <view class='operate-time'>操作时间：06-05 14:00</view>
+    </view>
+    <view class='operate-content'>
+      <view class='book-title'>《解忧杂货铺》</view>
+      <view class='book-title'>《秘密》</view>
+      <view class='address'>铜川市人民医院（铜川市图书馆001号柜）</view>
+      <view class='bookcardNum'>读者证号：6100006660987</view>
+    </view>
+  </view>
+</view>
+

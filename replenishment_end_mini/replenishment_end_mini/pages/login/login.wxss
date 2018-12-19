@@ -1,0 +1,120 @@
+/**index.wxss**/
+/* .userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+.input-placeholder{
+  color: #999;
+  opacity: .6;
+}
+.userinfo-avatar {
+  width: 219rpx;
+  height: 219rpx;
+  margin: 135rpx auto 102rpx;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 10rpx 15rpx 0 #dedede;
+}
+.userinfo-btn{
+  font-size: 14px;
+  line-height:  219rpx;
+  padding-left: 8rpx;
+  padding-right: 8rpx 
+}
+
+.login-form .form-item{
+  margin: 0 30rpx 50rpx;  
+  padding: 16rpx 0 16rpx 20rpx;
+  border-bottom: 2rpx solid #fafafa;
+  position: relative;
+}
+.login-form .input-icon,
+.login-form input{
+  float: left;
+} 
+.login-form .input-icon{
+  margin-right: 25rpx;
+}
+.login-form .input-icon image{
+  width: 28rpx;
+  height: 28rpx;
+}
+.login-form input{
+  font-size: 12px;
+  width: 400rpx;
+}
+.verification-code{
+  position: relative;
+}
+.verification-code .send-code-btn{
+  position: absolute;
+  right: 1rpx;
+  bottom: 11rpx;
+  min-width: 190rpx;
+  height: 64rpx;
+  font-size: 12px;
+  box-shadow: 0 5rpx 10rpx #c1c8f6;
+}
+.verification-code .had-send-btn{
+  background: #eee;
+  color: #000;
+}
+.submit-area{
+  position: relative
+}
+.errMsg{
+  position: absolute;
+  top: 0;
+  left: 40rpx;
+  transform: translateY(-120%);
+  font-size: 12px;
+  color: red;
+}
+.login-btn{
+  margin: 0 30rpx;
+  height: 98rpx;
+  letter-spacing: 4rpx;
+  box-shadow: 0 10rpx 25rpx #b1b8d6;
+}
+.recordUserName .wx-checkbox-input{
+   width: 30rpx; /* 背景的宽 */
+   height: 30rpx; /* 背景的高 */
+}
+checkbox-group{
+  font-size: 24rpx;
+  padding-left:52rpx;
+  margin:0 0 40rpx 0;
+}
+.userListBlock{
+  background:#dedede;
+  position:absolute;
+  left:64rpx;
+  top:68rpx;
+  width:79%;
+  padding:5px;
+  z-index:9;
+  border-radius: 5rpx;
+}
+.userList{
+  font-size:26rpx;
+  display:flex;
+  justify-content:space-between;
+  padding:3px 0;
+}
+.close{
+  /* padding:0 10rpx; */
+  margin-top:1rpx;
+}
+.arr{
+  position:absolute;
+  top:22rpx;
+  right:20rpx;
+  font-size:28rpx;
+  z-index: 9;
+}
+.arr image{
+  position:static;
+  width:32rpx;
+  height:18rpx;
+}

@@ -1,0 +1,154 @@
+// pages/component/bookcard/cardList/cardList.js
+const app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    readercardList: '',
+    hiddenLoading: false,
+    isback: false,
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // 点击读者卡是是否返回上层
+    this.setData({
+      isback: options.isback,
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    // 判断是否登陆，登陆后判断是否绑定读者卡
+    var _this = this;
+    wx.request({
+      url: app.globalData.server + '/api/v5/mini/myInfo',
+      data: {
+        openid: app.globalData.openid
+      },
+      success: function (res) {
+        _this.setData({
+          hiddenLoading: true,
+        })
+        if (!res.data.status) {
+          // 未登录
+          wx.redirectTo({
+            url: '../../login/idencodeLogin/idencodeLogin',
+          })
+        } else {
+          // 获取读者卡
+          var _this2 = _this;
+          wx.request({
+            url: app.globalData.server + '/api/v4/user/myReadercard',
+            data: {
+              openid: app.globalData.openid
+            },
+            success: function (res) {
+              _this2.setData({
+                readercardList: res.data.readercardList,
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+  openCertificate: function (e) {
+    var _this = this;
+    wx.request({
+      url: app.globalData.server +'/api/v4/ecard',
+      data:{
+        openid: app.globalData.openid
+      },
+      success:function(res){
+        _this.setData({
+          hiddenLoading: true,
+        })
+        if(res.data.errorKey=="ecardOrderPass"){
+          wx.redirectTo({
+            url: '../../auditSuccess/auditSuccess',
+          })
+        } else if (res.data.errorKey == "subPayNotpass" || res.data.errorKey =="subInfoNotpass"){
+          wx.redirectTo({
+            url: '../../auditFailure/auditFailure',
+          })
+        } else if (res.data.errorKey =="ecardOrderAudit"){
+          wx.redirectTo({
+            url: '../../paySuccess/paySuccess',
+          })
+        }else{
+          wx.redirectTo({
+            url: '../../onlineCertificate/onlineCertificate',
+          })
+        }
+      }
+    })
+  },
+  unBinding: function(e) {
+    // this.setData({
+    //   hiddenLoading: false,
+    // })
+    var _this = this;
+    var readercard_id = e.currentTarget.dataset.readercard_id;
+    wx.showModal({
+      title: '温馨提示',
+      content: '是否要解除绑定',
+      confirmText:'确认解绑',
+      cancelText:'再想想',
+      success: function (res) {
+        if (res.confirm) {
+          wx.request({
+            url: app.globalData.server + '/api/v4/user/unBinding/' + readercard_id,
+            data: {
+              openid: app.globalData.openid,
+            },
+            success: function (res) {
+              _this.setData({
+                hiddenLoading: true,
+              })
+              if (res.data.status) {
+                // 获取读者卡
+                var _this2 = _this;
+                wx.request({
+                  url: app.globalData.server + '/api/v4/user/myReadercard',
+                  data: {
+                    openid: app.globalData.openid
+                  },
+                  success: function (res) {
+                    _this2.setData({
+                      readercardList: res.data.readercardList,
+                    })
+                  }
+                })
+              } 
+            }
+          })
+        }else if(res.cancel){
+          
+        }  
+      }
+    })
+  },
+
+  // 点击读者卡
+  back: function (e) {
+    let pages = getCurrentPages();//当前页面
+    let prevPage = pages[pages.length - 2];//上一页面
+    prevPage.setData({ //直接给上移页面赋值
+      cardno: e.currentTarget.dataset.cardno,
+      readercard_id: e.currentTarget.dataset.readercard_id,
+      orgname: e.currentTarget.dataset.orgname,
+    });
+    if(this.data.isback){
+      wx.navigateBack({
+        delta: 1
+      })
+    }
+  },
+})

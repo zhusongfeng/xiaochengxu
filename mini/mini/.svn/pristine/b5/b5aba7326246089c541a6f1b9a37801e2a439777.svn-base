@@ -1,0 +1,14 @@
+.title{
+  font-size: 34rpx;
+  text-align: center;
+}
+.content{
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+.contentList{
+  margin-top: 20rpx;
+}
+.big_bt{
+  margin-top: 50rpx;
+}

@@ -1,0 +1,15 @@
+ <view class="dialog-wrapper" wx:if="{{visible}}">
+    <view class="dialog">
+       <view wx:if="{{close}}" class="dialog-close"></view> 
+      <view class="dialog-header">
+        <slot name="header"></slot>
+      </view>
+      <view class="dialog-body">
+        <slot name="body"></slot>
+      </view>
+      
+      <view class="dialog-footer">
+        <slot name="footer"></slot>
+      </view>
+    </view>
+  </view>

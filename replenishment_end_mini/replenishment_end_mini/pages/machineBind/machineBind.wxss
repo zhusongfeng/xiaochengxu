@@ -1,0 +1,39 @@
+/* pages/machineBind/machineBind.wxss */
+.item,.btn{
+  display: flex;
+  /* align-items: flex-start; */
+  /* align-content: center; */
+  margin: 0 20rpx;
+}
+.item view{
+  flex: 1;
+  margin-top: 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.item view picker .merchantName{
+  margin-top: 0rpx;
+  border: 3rpx solid gray;
+}
+.checkbox{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  
+}
+.checkbox checkbox-group{
+  margin: 20rpx;
+}
+.item input{
+  border: 3rpx solid gray;
+   height: 50rpx;
+  line-height: 50rpx;
+}
+.downimg{
+  height: 20rpx;
+  width: 20rpx;
+  position: relative;
+  right: 0;
+  top: 0;
+}

@@ -1,0 +1,49 @@
+@import "../../../common/weui.wxss";
+
+.notice{
+  font-size: 40rpx;
+  color: green;
+  margin-top: 20rpx;
+}
+.block{
+  /*border-bottom: 10rpx solid #ebeced;*/
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  line-height: 50rpx;
+}
+#block1{
+  font-size: 30rpx;
+  width: 100%;
+}
+#block2{
+  font-size: 28rpx;
+  border-bottom-width: 0rpx;
+  text-align: center;
+}
+.weui-cell:before {
+  border-top: 0rpx;
+}
+.weui-cells_after-title{
+  border: 2rpx solid #ebeced;
+  padding: 40rpx;
+  margin-top: 60rpx;
+  border-radius: 10rpx;
+}
+.radio-title{
+  font-size: 32rpx;
+  color: gray;
+}
+.weui-check__label{
+  border-bottom: 0rpx;
+  padding-top: 30rpx;
+  padding-bottom: 20rpx;
+}
+.cancel{
+  font-size: 36rpx;
+  color: gray;
+  margin-top: 30rpx;
+}
+.cancelLogin{
+  background-color: #ffffff;
+  color: gray;
+}

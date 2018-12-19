@@ -1,0 +1,100 @@
+// pages/component/scanUnlock/scanPrompt/scanPrompt.js
+const app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    hiddenLoading: false,
+    unlockDocList:""
+  },
+
+  //确认解锁
+  confirmUnlock:function(){
+    wx.navigateTo({
+      url: '../unlockVerificate/unlockVerificate'
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    // 判断是否登陆
+    var _this = this;
+    wx.request({
+      url: app.globalData.server + '/api/v5/mini/myInfo',
+      data: {
+        openid: app.globalData.openid
+      },
+      success: function (res) {
+        console.log(res.data);
+        _this.setData({
+          hiddenLoading: true,
+        })
+        if (!res.data.status) {
+          // 未登录
+          wx.navigateTo({
+            url: '../../login/passwordLogin/passwordLogin',
+          })
+        } else {
+          var _this2 = _this;
+          //获取登陆书柜的说明文档
+          wx.request({
+            url: app.globalData.server + '/api/v5/mini/unlockDoc',
+            success:function(res){
+              _this2.setData({
+                hiddenLoading: true,
+              })
+              _this2.setData({
+                unlockDocList: res.data.unlockDoc
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  }
+})

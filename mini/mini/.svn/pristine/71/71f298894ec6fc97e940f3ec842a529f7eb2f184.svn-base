@@ -1,0 +1,18 @@
+<view class="container">
+  <view class='cardList'>
+    <view class='cardItem' wx:for="{{readercardList}}" wx:key="{{cardno}}" 
+    bindtap='back' data-cardno='{{item.cardno}}' data-orgname='{{item.name}}' data-readercard_id='{{item.id}}'>
+      <view class='bookcardNum'>读者证号：{{item.cardno}}</view>
+      <view class='lib'>{{item.name}}</view>
+      <view class='bt'>
+        <!-- <text class='default_bt'>设为默认</text> -->
+        <view class='unbind_bt' bindtap='unBinding' wx:if='{{!isback}}' data-readercard_id='{{item.id}}'>
+        解除绑定
+        </view>
+      </view>
+      <view style='clear:both'></view>
+    </view>
+  </view>
+  <navigator class='small_bt' url='../bindBookcard/bindBookcard'>+添加读者证</navigator>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>

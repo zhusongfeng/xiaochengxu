@@ -1,0 +1,43 @@
+<view class="container">
+  <view class='bookInfo'>
+    <image class='bookPic' src='{{coverimg}}' binderror="errorCoverimg"></image>
+    <view class='bookTitle'>{{title}}</view>
+    <view class='bookAuthor' wx:if="{{author == null}}">作者：暂无数据</view>
+    <view class='bookAuthor' wx:if="{{author != null}}">作者：{{author}}</view>
+    <view class='bookPrice'>￥{{price}}</view>
+    <button class='small_bt' catchtap='borrowDetail'>
+      免费借阅
+    </button>
+  </view>
+  <view class='bookDescribe'>
+    <view class='contentInfo'>
+      内容简介
+    </view>
+    <view class='contentDetails bookIntro'>
+      {{content}}
+    </view>
+    <view class='contentInfo'>
+      图书信息
+    </view>
+    <view class='bookDetails'>
+      <view class='infoList'>
+        <text class='infoTitle'>作者：</text>
+        <text class='infoContent' wx:if="{{author == null}}">暂无数据</text>
+        <text class='infoContent' wx:if="{{author != null}}">{{author}}</text>
+      </view>
+      <view class='infoList'>
+        <text class='infoTitle'>出版方：</text>
+        <text class='infoContent'>{{publisher}}</text>
+      </view>
+      <view class='infoList'>
+        <text class='infoTitle'>ISBN码：</text>
+        <text class='infoContent'>{{isbn}}</text>
+      </view>
+      <view class='infoList'>
+        <text class='infoTitle'>出版日期：</text>
+        <text class='infoContent'>{{publishdate}}</text>
+      </view>
+    </view>
+  </view>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>

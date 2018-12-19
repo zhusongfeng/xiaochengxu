@@ -1,0 +1,9 @@
+<inventory
+  type="replenishment" 
+  navBarTitles="{{navBar}}"
+  inventoryDetails="{{inventoryDetails}}"
+  inventoryTotal="{{inventoryTotal}}"
+   bind:detailTolower="detailTolower"
+   bind:totallTolower="countTolower"
+   loadingShow="{{isLoading}}"
+  ></inventory>

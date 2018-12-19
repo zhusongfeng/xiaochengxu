@@ -1,0 +1,11 @@
+<view class="container">
+  <icon type="success" size="50" color="green"/>
+  <view class='notice'>借阅成功</view>
+  <view class='block'>
+    <view class='orderNum'>您的订单号为: {{borrowno}}</view>
+    <view id='block1'>特别提示：您下单成功后，工作人员会在24小时内为您审核，审核通过，图书会进行采购加工，编目完成后会通过快递直接发送给您！</view>
+  </view>
+  <navigator class='big_bt' url='../myBorrow/myBorrow' open-type="redirect" hover-class="other-navigator-hover">查看订单</navigator>
+  <view class='big_bt back' hover-class="other-navigator-hover" bindtap='backToIndex'>返回首页</view>
+</view>
+

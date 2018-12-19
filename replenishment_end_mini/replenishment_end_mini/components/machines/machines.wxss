@@ -1,0 +1,61 @@
+@import "/app.wxss";
+
+.container{
+ 
+}
+
+
+.machines-list{
+  background-color: #f5f5f5;
+}
+.machines-list .machine-item{
+  position: relative;
+  padding: 25rpx 35rpx 22rpx;
+  background-color: #fff;
+  
+}
+.machines-list .machine-item:not(:last-child){
+  margin-bottom: 20rpx;
+}
+.machine-item .machine-display{
+  width: 130rpx;
+}
+.machine-display .thumbnail{
+  width: 100%;
+  height: 130rpx;
+  border-radius: 10rpx;
+}
+.item-details{
+  width: 510rpx;
+  margin-left: 40rpx;
+  line-height: 40rpx;
+}
+.item-details .machine-details{
+
+  width: 350rpx;
+}
+.icon-wifi{
+  width: 28rpx;
+  height: 22rpx;
+}
+.icon-temperature{
+  width: 22rpx;
+  height: 23rpx;
+}
+.item-details .machine-status{
+  margin-right: 10rpx;
+}
+.item-details .machine-remind{
+   color: #ff5959;
+}
+.no-data{
+  margin-top: 80rpx;
+  text-align: center;
+  color: #666;
+  font-size: 24rpx;
+}
+.shangcibuhuo{
+position: absolute;
+bottom:16rpx;
+left: 201rpx;
+}

@@ -1,0 +1,23 @@
+<view class="container">
+  <view class='notice'>提交成功！</view>
+  <view class='block' id='block1'>
+    <view class='payNumber'>您的交易单号为：{{orderno}}</view>
+    <view>系统正在审核，请您耐心等待，24小时内系统会以短信形式提醒您读书证办理是否成功！</view>
+  </view>
+  <view class='block' id='block2'>
+    <text>温馨提示：您办卡成功后第一次使用读者证需在线借阅图书，读者证以及押金收据将和图书一起以快递的形式快递到您的手中。</text>
+  </view>
+  <view class='block' id='block3'>
+    <view>读者信息</view>
+    <view>姓名：<text class='text1'>{{name}}</text></view>
+    <view>身份证号：<text class='text1'>{{idcard}}</text></view>
+    <view>手机号：<text class='text1'>{{phone}}</text></view>
+    <view>联系地址：<text class='text1'>{{address}}</text></view>
+  </view>
+  <view class='block' id='block4'>
+    <view>客服热线</view>
+    <view class='phoneNum' catchtap='calling'>400-128-0528</view>
+    <navigator class='big_bt' catchtap="openIndex" open-type="redirect" hover-class="other-navigator-hover">确定</navigator>
+  </view>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>

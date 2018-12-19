@@ -1,0 +1,49 @@
+<view class="container">
+ 
+  
+  <view class="machines-list">
+    <view 
+      class="machine-item clearfix" 
+      wx:for="{{machines}}" 
+      wx:key="{{index}}"
+      data-machine="{{item}}"
+      bindtap="goToLink">
+      <view class="machine-display fl">
+        <image src="{{item.imageUrl}}" class="thumbnail" lazy-load></image>
+        <view class="f20 c6 tc"><text>{{item.terminalCode}}</text></view>
+      </view>
+      <view class="item-details clearfix fl">
+        <view class="machine-details fl">
+          <view class="c3 f26 fb srt"><text>{{item.hotelName}}</text></view>
+          <view class="c6 f22 srt"><text>{{item.roomPosition}}</text></view>
+          <view class="c6 f22">
+            机器状态：
+            <image 
+              class="machine-status icon-wifi" 
+              src="/images/machine/icon-wifi{{item.status.wifi ? '' : '-error'}}@3x.png">
+            </image>
+            <image 
+              class="machine-status icon-temperature" 
+              src="/images/machine/icon-wendu{{item.status.temperature ? '' : '-error'}}@3x.png">
+            </image>
+            <image 
+              class="machine-status icon-temperature" 
+              src="/images/machine/icon-light{{item.status.lightStatus ? '' : '-error'}}@3x.png">
+            </image>
+          
+          </view>
+          <view class="c9 f22 shangcibuhuo">上一次补货时间：{{item.status.lastSupplyDate}}</view>
+        </view>
+        <view class="machine-remind fr f24">
+          <view wx:if="{{item.count.stockoutCount}}">缺货：{{item.count.stockoutCount}}</view>
+          <view wx:if="{{item.count.expiredGoodsWarnCount}}">临保：{{item.count.expiredGoodsWarnCount}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!machines.length}}" class="no-data">
+    <view wx:if="{{type === 'replenishment'}}">暂无需要补货的机器</view>
+    <view wx:if="{{type === 'caution'}}">暂无含有过期商品的机器</view>
+    <view wx:if="{{type === 'all'}}">该商户下暂无机器</view>
+  </view>
+</view>

@@ -1,0 +1,64 @@
+<view class='container'>
+  <view class='address'>
+    <view class='icon_address'>
+      <image src='../../../image/address_icon.png'></image>    
+    </view>
+    <navigator class='address_info' wx:if="{{!address_mobile}}"
+      url='../myAddress/myAddress?isback=true'>
+      点击添加地址
+    </navigator>
+    <view class='address_info' wx:else>
+      <view>
+        <text>{{address_name}}</text>
+        <text style='float:right;margin-right:10rpx;'>{{address_mobile}}</text>
+      </view>
+      <view style='clear:both'></view>
+      <view style='margin-top:10rpx;line-height:40rpx;width:100%;'>{{address_addressStr}}</view>
+    </view>
+    <navigator class='icon_back' url='../myAddress/myAddress?isback=true'>
+      <image src='../../../image/back.png'></image>
+    </navigator>
+  </view>
+
+  <view class='address' bindtap=''>
+    <view class='icon_address'>
+      <image class='icon1' src='../../../image/bookcard.png'></image>    
+    </view>
+    <view class='address_info'>
+      <view>{{orgname}}</view>
+      <view style='margin-top:10rpx;'>读者证号：{{cardno}}</view>
+    </view>
+    <navigator class='icon_back' url='../bookcard/cardList/cardList?isback=true'>
+      <image src='../../../image/back.png'></image>
+    </navigator>
+  </view>
+  <view class='bookInfo'>
+    <view class='bookPic'>
+      <image class='bookImage' src='{{coverimg}}' binderror="errorCoverimg"></image>
+    </view>
+    <view class='bookText'>
+      <view class='bookTitle'>{{title}}</view>
+      <view class='bookAuthor'>作者：{{author}}</view>
+      <view class='bookPrice'>定价：￥{{price}}</view>
+      <view class='bookCom'>ISBN：{{isbn}}</view>
+    </view>
+  </view>
+  <view class='message'>用户留言：
+    <input type='text' bindinput='remarkInput' placeholder='在这里输入您需要备注的信息'></input>
+  </view>
+  <view class='returnLib'>
+    <text>图书归还地</text><text style='float:right'>{{returnAddress}}</text>
+  </view>
+  <view class='bookDescribe'>
+    <view class='contentInfo'>
+      图书借阅规则
+    </view>
+    <view class='contentDetails bookIntro'>
+      线上线下可借阅：{{maxborrow}} 本; 线上可借阅：{{onlinemaxborrow}} 本;
+      借阅期限 ： {{borrowperiod}}天;
+      续借期限 ： {{renewperiod}}天。
+    </view>
+  </view>
+  <button class='big_bt' bindtap='submit'>提交订单</button>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>

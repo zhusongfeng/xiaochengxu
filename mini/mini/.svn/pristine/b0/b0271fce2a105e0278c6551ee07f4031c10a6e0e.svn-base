@@ -1,0 +1,23 @@
+@import "../../common/weui.wxss";
+
+.sdr-tableviewcell{
+  display: flex;
+  -webkit-align-items:center;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid #ebeced;
+}
+.sdr-tableviewcell_label{
+  width: 160rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.mobile-box-flex-1{
+  flex: 1;
+}
+.sdr-tableviewcell_input{
+  padding: 0 20rpx;
+  height: 100rpx;
+  line-height:100rpx;
+  box-sizing: border-box;
+  width:100%;
+}

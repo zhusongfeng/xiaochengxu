@@ -1,0 +1,19 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 40rpx;
+}
+.title{
+  font-size: 40rpx;
+}
+.content{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  line-height: 70rpx;
+  text-indent: 2em;
+}
+.deposit{
+  font-size: 50rpx;
+  color: #009a44;
+  margin-top: 20rpx;  
+}

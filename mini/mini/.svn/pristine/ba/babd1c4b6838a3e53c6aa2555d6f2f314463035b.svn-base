@@ -1,0 +1,34 @@
+.container1{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+.operate-item{
+  border-bottom: 2rpx solid #ebeced;
+  padding-top: 30rpx;
+  padding-bottom: 20rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+.operate-title{
+  font-size: 32rpx;
+  display: flex;
+}
+.operate-time{
+  margin-left: auto;
+  font-size: 30rpx;
+  color: gray;
+}
+.operate-content{
+  margin-top: 10rpx;
+}
+.book-title{
+  font-size: 32rpx;
+  margin-top: 10rpx;
+}
+.address{
+  margin-top: 20rpx;
+}
+.address,.bookcardNum{
+  font-size: 28rpx;
+  color: gray;
+}

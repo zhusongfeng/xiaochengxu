@@ -1,0 +1,138 @@
+const app = getApp();
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    libArray: [],
+    libIndex: 0,
+    cardno: '',
+    cardpwd: '',
+    hiddenLoading: true,
+  },
+  bindChangeLib: function (e) {
+    this.setData({
+      libIndex: e.detail.value
+    })
+  }, 
+  onLoad: function (e) {
+    var mac = e.mac;
+    var _this = this;
+    wx.request({
+      url: app.globalData.server + '/api/v4/org/orgList',
+      success: function (res) {
+        var orgList = res.data.orgList;
+        _this.setData({
+          libArray: orgList,
+        })
+        var _this2 = _this;
+        if (mac != null && mac != '' && mac != 'undefined'){
+          wx.request({
+            url: app.globalData.server + '/api/v5/mini/getOrg',
+            data: {mac: mac},
+            success: function (res) {
+              var code = res.data.org_code;
+              for (var index in orgList) {
+                if(orgList[index].code == code){
+                  _this2.setData({
+                    libIndex: index,
+                  })
+                }
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+  onShow: function () {
+    var _this = this;
+    wx.request({
+      url: app.globalData.server + '/api/v5/mini/myInfo',
+      data: {
+        openid: app.globalData.openid
+      },
+      success: function (res) {
+        if (!res.data.status) {
+          wx.navigateTo({
+            url: '../../login/idencodeLogin/idencodeLogin',
+          })
+        }
+      }
+    })
+  },
+  bindChangeLib: function (e) {
+    this.setData({
+      libIndex: e.detail.value
+    })
+  },
+  //获取用户输入的读者卡
+  cardnoInput: function (e) {
+    this.setData({
+      cardno: e.detail.value
+    })
+  },
+  //获读者卡密码
+  cardpwdInput: function (e) {
+    this.setData({
+      cardpwd: e.detail.value
+    })
+  }, 
+  // 绑卡
+  binding: function (e) {
+    var _this = this;
+    var cardno = this.data.cardno;
+    console.log(cardno);
+    var cardpwd = this.data.cardpwd;
+    console.log(cardpwd);
+    var org_id = this.data.libArray[this.data.libIndex].id;
+     if (!cardno ||!cardpwd){
+      wx.showToast({ title: '请将信息填写完整', icon: 'none', duration: 2000 })
+      return;
+    }
+    if (!(/[0-9]/.test(cardno))) {
+      wx.showToast({ title: '读者证号错误', icon: 'none', duration: 2000 })
+      return;
+    }
+    // if (!cardpwd||cardno==null) {
+    //   console.log(1111);
+    //   wx.showToast({ title: '请输入读者卡密码', icon: 'none', duration: 2000 })
+    //   return;
+    // }
+    this.setData({
+      hiddenLoading: false,
+    })
+    wx.request({
+      url: app.globalData.server + '/api/v4/user/bindingCard',
+      data: {
+        cardno: cardno, cardpwd: cardpwd, org_id: org_id,
+        openid: app.globalData.openid
+      },
+      success: function(res) {
+        _this.setData({
+          hiddenLoading: true,
+        })
+        if(res.data.status){
+          wx.showModal({
+            title: '提示',
+            content: '绑定成功',
+            showCancel: false,
+            success: function (res) {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          })
+        } else {
+          wx.showToast({ title: res.data.message, icon: 'none', duration: 2000 })
+          return;
+        }
+      }
+    })
+  },
+  ecard: function(){
+    wx.redirectTo({
+      url: '../../onlineCertificate/onlineCertificate',
+    })
+  }
+})

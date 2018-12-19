@@ -1,0 +1,228 @@
+@import "/app.wxss";
+.container{
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.navbar{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 686rpx;
+  height: 66rpx;
+  border: 1rpx solid #666;
+  border-radius: 10rpx;
+  margin: 20rpx auto 25rpx;
+  font-size: 24rpx;
+  background: transparent;
+}
+.navbar::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  height: 34rpx;
+  width: 2rpx;
+  background-color: rgba(33, 33, 33, .3);
+}
+.navbar .nav-item{
+  width: 330rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  color: rgba(33, 33, 33, .5);
+}
+.navbar .nav-item:first-child{
+  margin-right: 12rpx;
+}
+.navbar .nav-item.active{
+  background: linear-gradient(to left, #71a8f6, #767cec);
+  color: #fff;
+}
+.main-wrapper{
+  width: 100vw;
+ 
+  position: relative;
+ 
+}
+.main{
+  width: 200vw;
+  
+  transition: transform .15s linear; 
+  position: relative;
+
+  display: flex;
+
+}
+.main>view{
+  width: 100vw;
+  
+}
+
+.detail-list{
+  background-color: #f5f5f5;
+}
+.detail-scroll{
+  height: calc(100vh - 111rpx);
+}
+.detail-list .detail-item{
+  box-sizing: border-box;
+  padding: 25rpx 32rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  background-color: #fff;
+}
+.detail-list .detail-item:not(:last-child){
+  margin-bottom: 10rpx;
+}
+.detail-item .item-row:last-child{
+  margin-top: 25rpx;
+}
+/* .item-row>view{
+  display: flex;
+} */
+.item-row .detailName{
+  display: flex;
+  text-align: center;
+}
+.item-row .detailName view{
+  flex: 1;
+  border:1rpx solid #333;
+  height:40rpx;
+}
+.item-row .detailName view:nth-child(1){
+  flex-grow: 1;
+}
+.item-row .detailName view:nth-child(2){
+  flex-grow: 1;
+  border-left:none;
+}
+.item-row .detailName view:nth-child(3){
+  flex-grow: 4;
+  border-left:none;
+}
+/* .item-row>view>view{
+  flex: 1;
+} */
+.item-row .detailList .tr{
+  display:flex;
+  text-align: center;   
+}
+.item-row .detailList .tr view{
+  flex:1;
+  border:1rpx solid #333;
+}
+.item-row .detailList .tr view:nth-child(1){
+  flex-grow: 1;
+}
+.item-row .detailList .tr view:nth-child(2){
+  flex-grow: 1;
+  border-left:none;
+}
+.item-row .detailList view:nth-child(3){
+  flex-grow: 4;
+  border-left:none; 
+}
+.item-row .detailList .tr .td{
+  border-top:none;
+  height:40rpx;
+}
+.item-row .item-left{
+  flex: 1;
+  position:relative;
+
+}
+.roomNum{
+  font-size: 35rpx;
+}
+.total-list .row{
+  display: flex;
+  height: 70rpx;
+  border-top: 1rpx solid #e5e5e5;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 24rpx;
+}
+.total-list .row:last-child{
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.total-list .row .column{
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+}
+ .no-data{
+  color: #666;
+  font-size: 24rpx;
+  text-align: center;
+  padding: 25rpx 32rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.no-data.full{
+   height: 100%;
+   background-color: #fff;
+}
+.loading{
+  position: fixed;
+  z-index: 9;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 90rpx;
+  background: #f7f7f7;
+}
+.count-scroll{
+  height: calc(100vh - 180rpx);
+}
+.begin-replenishment{
+  background:#FFA200;
+  color:#fff;
+  position: absolute;
+  right:0;
+  top: 0;
+
+}
+.item-top{
+  padding-bottom:5rpx;
+  border-bottom:1rpx solid #efefef;
+}
+.item-row .detailStatus view:nth-child(2){
+  flex-grow: 4;
+  border-left:none;
+}
+.item-row .detailStatus view:nth-child(3){
+  flex-grow: 3;
+  border-left:none; 
+}
+.item-row .detailListStatus .tr view:nth-child(1){
+  flex-grow: 1;
+}
+.item-row .detailListStatus .tr view:nth-child(2){
+  flex-grow: 4;
+  border-left:none;
+}
+.item-row .detailListStatus .tr view:nth-child(3){
+  flex-grow: 3;
+  border-left:none; 
+  color:#f00;
+}
+.hotelName{
+  line-height: 2.3;
+}
+.roomNum{
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display:block;
+  position:relative;
+  top:0;
+}

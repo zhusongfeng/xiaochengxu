@@ -1,0 +1,40 @@
+/* components/e-input/e-input.wxss */
+.e-input-wrap{
+  position: relative;
+  height: 60rpx;
+  padding-left: 169rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+}
+.e-input-wrap::before{
+  content: '';
+  height: 30rpx;
+  border-right: 1rpx solid #ccc;
+  position: absolute;
+  left: 61rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.search-icon{
+  position: absolute;
+  left: 106rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.input-search{
+  width: 500rpx;
+  height: 100%;
+  font-size: 24rpx;
+  color: #000;
+  opacity: .5;
+}
+
+.input-clear{
+  position: absolute;
+  right: 20rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hide{
+  display: none;
+}

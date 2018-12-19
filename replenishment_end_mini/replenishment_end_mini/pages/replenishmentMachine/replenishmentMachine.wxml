@@ -1,0 +1,48 @@
+<view class="container clearfix bgf5">
+ 
+   <view class="input-area">
+    <e-input
+      value="{{queryValue}}"
+      bind:complete="queryMachines"
+      bind:input="myInput">
+    </e-input>
+  </view>
+  <view class='scroll-ct'>
+     <scroll-view scroll-y style='height:100%;' bindscrolltolower="loadMachines">
+     <view class="list-wrapper">
+    <machines type="replenishment" machines="{{machines}}"></machines>
+
+    <view class="clearfix loading">
+      <loading 
+        show="{{isLoading}}">
+      </loading>  
+    </view>
+    <view class="no-more-data" wx:if="{{page.isLastPage && machines.length}}">
+      <view class="inner">暂无更多数据</view>
+    </view>
+  </view>
+  </scroll-view>
+  </view>
+  <view class="bottom-buttons">
+    <!-- <button class="bottom-button btn-primary" bindtap='fillAllMachine'>一键补满所有机器</button> -->
+    <navigator 
+      url="/pages/replenishmentInventory/replenishmentInventory"
+      style="display:block;font-size:0;margin:0 auto;width:270rpx;">
+      <button class="bottom-button btn-default">补货清单</button>
+    </navigator>
+  </view>
+    <dialog 
+  class="details-dialog" 
+  visible="{{isOperateDialogShow}}">
+  <view slot="header" class="title">安全警告</view>
+  <view slot="body" class="body">
+    <image class="icon-warning" src="/images/device/icon-zhuyi@3x.png"></image>
+    <view class="message">请再次确认是否<text style="color:#ff5050;">一键补满所有机器</text></view>
+  </view>
+  <view slot="footer" class="buttons">
+    <button class="btn btn-primary" bindtap="executeCommand">确认</button>
+    <button class="btn btn-default" data-name="isOperateDialogShow" bindtap="closeDialog">取消</button>
+  </view>
+ </dialog>
+
+</view>

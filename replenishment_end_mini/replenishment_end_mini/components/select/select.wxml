@@ -1,0 +1,26 @@
+<view class='select-ct'>
+  <picker bindchange="bindPickerChange" mode="{{pickermode}}" value="{{selectData}}" range="{{array}}" class='picker-ct' wx:if="{{pickermode==='selector'}}">
+     <view class="picker">
+       <view class="picker-text text-right">
+      {{array[selectData]}}
+    </view>
+    <view class='picker-arrow'>
+      <image class='arrow-icon' src='../image/icon/icon-xiala@3x.png'></image>
+    </view>
+    </view>
+  </picker>
+  <picker bindchange="datePickerChange" mode="{{pickermode}}" fields="{{pickerfields}}" start="2015-09-01"  end="2020-12-31" value="{{date}}" 
+  
+  class='picker-ct' wx:if="{{pickermode==='date'}}">
+    <view class='picker'>
+        <view class="picker-text">
+      {{date}}
+    </view>
+    <view class='picker-arrow'>
+      <image class='arrow-icon' src='../image/icon/icon-xiala@3x.png'></image>
+    </view>
+    </view>
+  
+  </picker>
+</view>
+<slot></slot>

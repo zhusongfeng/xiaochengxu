@@ -1,0 +1,26 @@
+<view class="container">
+  <radio-group bindchange="radioChange">
+    <label class="weui-cell weui-check__label address">
+      <view class='icon_address'>
+        <radio value="" checked="true"/>    
+      </view>
+      <view class='address_info'>
+        <view>
+          <text>张三</text><text style='float:right;margin-right:10rpx;'>1234566789970</text>
+        </view>
+        <view>陕西省西安市灞桥区陆港大厦C座陆港大厦C座</view>
+      </view>
+    </label>
+    <label class="weui-cell weui-check__label address">
+      <view class='icon_address'>
+        <radio value="" checked=""/>    
+      </view>
+      <view class='address_info'>
+        <view>
+          <text>李四</text><text style='float:right;margin-right:10rpx;'>1234566789970</text>
+        </view>
+        <view>陕西省西安市灞桥区梦想公社</view>
+      </view>
+    </label>
+  </radio-group>
+</view>

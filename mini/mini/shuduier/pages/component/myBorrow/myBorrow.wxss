@@ -1,0 +1,14 @@
+.container{
+  font-size: 32rpx;
+  line-height: 70rpx;
+}
+.appImg{
+  height: 720rpx;
+}
+.title{
+  width: 100%;
+}
+.content{
+  width: 100%;
+  text-indent: 2em;
+}

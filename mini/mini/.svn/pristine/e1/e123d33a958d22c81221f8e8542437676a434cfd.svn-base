@@ -1,0 +1,48 @@
+.item{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 2rpx solid #ebeced;
+  font-size: 32rpx;
+}
+.word{
+  color: gray;
+}
+.item-address{
+  height:auto;
+  line-height:50rpx;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+}
+.swiper-item{
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    font-size: 32rpx;
+    border-bottom: 2rpx solid #ebeced;
+}
+.history-item{
+    padding-bottom: 10rpx;
+}
+.swiper-item-title{
+    display: flex;
+}
+.swiper-item-content{
+    display: flex;
+    margin-top: 20rpx;
+    padding-left: 20rpx;
+}
+.left-item{
+    width: 20%;
+}
+.right-item{
+    width: 76%;
+    margin-left: 4%;
+    margin-top: 10rpx;
+}
+.swiper-item-content image{
+    width: 150rpx;
+    height:170rpx;  
+}
+.book-author{
+    color: gray;
+    margin-top: 10rpx;
+}

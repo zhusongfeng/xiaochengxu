@@ -1,0 +1,22 @@
+<view class="container">
+  <icon type="warn" size="50" color="green"/>
+  <view class='notice'>自助借还书柜登录确认</view>
+  <view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+      <view class='radio-title'>请选择用于书柜操作的读者证</view>
+      <radio-group bindchange="radioChange">
+        <label class="weui-cell weui-check__label" wx:for="{{readercardList}}" wx:key="{{cardno}}">
+          <view class="weui-cell__hd">
+            <radio value="{{item.cardno}}" checked="{{item.checked}}"/>
+          </view>
+          <view class="weui-cell__bd">读者证号：{{item.cardno}}</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class='block' id='block2'>
+    <button class='big_bt' bindtap='cardLogin'>确认登录</button>
+    <button class='big_bt cancelLogin' plain="true" bindtap='cancelLogin'>取消登录，返回首页</button>
+  </view>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>

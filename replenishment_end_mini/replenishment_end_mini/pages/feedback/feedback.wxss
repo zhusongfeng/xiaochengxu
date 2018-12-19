@@ -1,0 +1,28 @@
+.feedback-form{
+  display: block;
+  padding: 30rpx;
+}
+.feedback-input,
+.contact-input{
+  box-sizing: border-box;
+  border: 1rpx solid #e5e5e5;
+  color: #333;
+  border-radius: 10rpx;
+}
+.feedback-input{
+  width: auto;
+  height: 404rpx;
+  padding: 40rpx 30rpx;
+  font-size: 28rpx;
+  line-height: 1.5em; 
+}
+.contact-input{
+  height: 100rpx;
+  padding: 20rpx 30rpx;  
+  font-size: 24rpx;
+  margin-top: 48rpx;
+}
+.btn-submit{
+  margin-top: 50rpx;
+  letter-spacing: 5rpx;
+}

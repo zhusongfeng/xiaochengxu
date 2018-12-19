@@ -1,0 +1,220 @@
+// pages/component/shuguiLogin/bookcardLogin/bookcardLogin.js
+const app = getApp()
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    readercardList: '',
+    readercardChecked: '',
+    hiddenLoading: true,
+  },
+
+  radioChange: function (e) {
+    this.setData({
+      readercardChecked: e.detail.value
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    // 判断是否登陆，登陆后判断是否绑定读者卡
+    this.setData({
+      hiddenLoading: false,
+    })
+    var _this = this;
+    wx.request({
+      url: app.globalData.server + '/api/v5/mini/myInfo',
+      data: {
+        openid: app.globalData.openid
+      },
+      success: function (res) {
+        _this.setData({
+          hiddenLoading: true,
+        })
+        if (!res.data.status) {
+          // 未登录
+          wx.showModal({
+            title: '提示',
+            content: '请先登录',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '../../login/idencodeLogin/idencodeLogin',
+                })
+              }
+            }
+          })
+        }else{
+          // 判断绑卡
+          wx.request({
+            url: app.globalData.server + '/api/v5/mini/getBindBySgr',
+            data: {
+              openid: app.globalData.openid,
+              mac: app.globalData.sgr_mac,
+            },
+            success: function(res) {
+              if(res.data.status){
+                // 获取读者卡
+                var _this2 = _this;
+                var readercardList = res.data.readercardList;
+                readercardList[0]["checked"] = 'true';
+                _this2.setData({
+                  readercardList: readercardList,
+                  readercardChecked: readercardList[0].cardno
+                })
+              }else {
+                wx.showModal({
+                  title: '提示',
+                  content: '您尚未绑定当前图书馆的读者卡，请先绑定',
+                  success: function (res) {
+                    if (res.confirm) {
+                      var mac = app.globalData.sgr_mac;
+                      wx.navigateTo({
+                        url: '../../bookcard/bindBookcard/bindBookcard?mac=' + mac,
+                      })
+                    } else if (res.cancel) {
+                      wx.redirectTo({
+                        url: '../../../index/index',
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+  // 读者卡登录
+  cardLogin: function(e) {
+    var doorno = this.data.doorno;
+    var _this = this; 
+    wx.request({
+      url: app.globalData.server + '/api/v5/mini/cardnoLogin',
+      data: {
+        mac: app.globalData.sgr_mac,
+        cardno: this.data.readercardChecked,
+        doorno: doorno,
+        qrcode_token: this.data.qrcode_token,
+        openid: app.globalData.openid
+      },
+      success: function (res) {
+        var _this2 = _this;
+        if(res.data.errcode == 0){
+          // doorno存在时，处理扫码开柜门
+          if (doorno != null && doorno != '' && doorno != 'undefined') {
+            wx.showLoading({
+              title: res.data.message,
+            })
+            // 轮询获取书柜的状态
+            var interval = setInterval(function () {
+              wx.request({
+                url: app.globalData.server + '/api/v5/mini/isOpendSgrDoorno',
+                data: {
+                  mac: app.globalData.sgr_mac,
+                  doorno: doorno,
+                  openid: app.globalData.openid
+                },
+                success: function (res) {
+                  var doorstatus = res.data.doorstatus;
+                  if (doorstatus != 0) {
+                    // 清除轮询
+                    clearInterval(interval);
+                    wx.hideLoading();
+                    wx.showModal({
+                      title: '提示',
+                      content: res.data.message,
+                      showCancel: false,
+                      success: function (res) {
+                        if(res.confirm){
+                          wx.redirectTo({
+                            url: '../../_test/test',
+                          })
+                        }
+                      }
+                    })
+                  }
+                }
+              })
+            }, 1000);
+          } else {
+            // 扫码登录后的处理
+            wx.showLoading({
+              title: res.data.message,
+            })
+            // 轮询获取登录状态
+            var interval_login = setInterval(function () {
+              wx.request({
+                url: app.globalData.server + '/api/v5/mini/isLoginByScanSgr',
+                data: {
+                  mac: app.globalData.sgr_mac,
+                  cardno: _this2.data.readercardChecked,
+                  openid: app.globalData.openid
+                },
+                success: function (res) {
+                  if (res.data.data.is_login) {
+                    // 清除轮询
+                    clearInterval(interval_login);
+                    wx.hideLoading();
+                    wx.showModal({
+                      title: '提示',
+                      content: res.data.data.message,
+                      showCancel: false,
+                      success: function (res) {
+                        if (res.confirm) {
+                          wx.redirectTo({
+                            url: '../../../index/index',
+                          })
+                        }
+                      }
+                    })
+                  }
+                }
+              })
+            }, 1000);
+          }
+        } else if (res.data.errcode == 41001){
+          wx.showModal({
+            title: '提示',
+            content: res.data.errmsg,
+            confirmText: '立即解锁',
+            success: function(res) {
+              if(res.confirm){
+                wx.redirectTo({
+                  url: '../../scanUnlock/scanPrompt/scanPrompt',
+                })
+              }
+            }
+          })
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: res.data.errmsg,
+            showCancel: false
+          })
+        }
+      }
+    })
+  },
+  // 取消登录
+  cancelLogin: function(res) {
+    wx.redirectTo({
+      url: '../../../index/index',
+    })
+  },
+  onLoad: function (options) {
+    var qrcode_token = options.qrcode_token; 
+    var doorno = options.doorno;
+    //别忘了刷新一下imgUrl参数使之生效
+    this.setData({
+      doorno: doorno,
+      qrcode_token: qrcode_token
+    })
+  }
+})

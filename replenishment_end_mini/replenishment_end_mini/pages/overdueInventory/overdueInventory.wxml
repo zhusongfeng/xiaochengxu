@@ -1,0 +1,7 @@
+<inventory type="overdue" navBarTitles="{{navBarTitles}}"
+inventoryDetails="{{expiredDetail}}"
+  inventoryTotal="{{inventoryTotal}}"
+   bind:detailTolower="detailTolower"
+   bind:countTolower="countTolower"
+   loadingShow="{{isLoading}}"
+></inventory>

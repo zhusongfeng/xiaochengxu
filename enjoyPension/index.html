@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function() {
+        isWeixinBrowser();
+    }
+    //判断是否微信浏览器
+    function isWeixinBrowser() {
+        var ua = navigator.userAgent.toLowerCase();
+        var result = (/micromessenger/.test(ua)) ? true : false;
+        if (result) {
+            console.log('你正在访问微信浏览器');
+        }
+        else {
+            console.log('你访问的不是微信浏览器');
+        }
+        return result;
+    }
+</script>
+<div>
+    ssjosms设计说明书是数据闪烁s
+</div>
+</body>
+</html>

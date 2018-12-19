@@ -1,0 +1,75 @@
+//获取应用实例
+const app = getApp()
+//var searchWordArray;
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    searchWordArray:[],
+  },
+  onLoad: function (options) { 
+    var _this = this;
+    wx.getStorage({
+      key: 'keyWord',
+      success: function (res) {
+        var historykey = res.data; 
+        _this.setData({
+          historykey: historykey,
+          hiddenLoading: true,
+        })   
+      },
+      /*fail: function (res) {
+        if (res.errMsg == "getStorage:fail data not found"){
+          searchWordArray = new Array();
+        }
+      },*/
+    })
+
+    var _this = this;
+    wx.request({
+      url: app.globalData.server + '/api/book/searchHotKey',
+      success: function (res) {
+        var hotkey = res.data;
+        _this.setData({
+          hotkey: hotkey,
+          hiddenLoading: true,
+        })
+      }
+    })
+  },
+  searchInput:function(e){
+    this.setData({
+      searchWord: e.detail.value
+    })
+  },
+  searchBook:function(){
+    var searchWord = this.data.searchWord;   
+    if (!searchWord) {
+      wx.showToast({title: '您未输入搜索内容', icon: 'none', duration: 2000})
+      return;
+    }  
+    wx.navigateTo({
+      url: "../searchResult/searchResult?key=" + searchWord,
+    })
+
+    var temp = this.data.searchWordArray.push(searchWord);
+    this.setData({
+      searchWordArray: temp
+    })
+    wx.setStorage({
+      key: 'keyWord',
+      data: temp,
+    })
+  },
+  clearHistory:function(){
+    wx.removeStorage({
+      key: 'keyWord',
+    })
+    this.setData({
+      historykey: null,
+    })
+  }
+})

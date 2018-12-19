@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="hotel-name">
+    <image class="hotel-icon" src="/images/orderDesc/icon_hotel@3x.png"></image>{{order.location}}</view>
+  <view class="order-pay">-{{order.goodsPrice}}</view>
+  <view class="order-result">{{order.payStatus}}</view>
+  <view class="desc-list">
+    <view class="list-item">付款方式
+      <view class="value">
+        <image class="pay-icon" src="{{order.payIcon}}"></image>
+      </view>
+    </view>
+    <view class="list-item">商品说明
+      <view class="value">{{order.goodsName}}</view>
+    </view>
+  </view>
+  <view class="order-info">
+    <view class="list-item">创建时间
+      <view class="value">{{order.confirmOrderDate + ' ' + order.confirmOrderTime}}</view>
+    </view>
+    <view class="list-item">订单号
+      <view class="value">{{order.orderCode}}</view>
+    </view>
+  </view>
+  <view>
+    <button class='machineDetail' bindtap='toDetailPage' data-machine='{{order}}'>设备详情</button>
+  </view>
+</view>

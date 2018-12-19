@@ -1,0 +1,37 @@
+.notice{
+  font-size: 50rpx;
+  color: green;
+  margin-top: 10rpx;
+}
+.block{
+  border-bottom: 10rpx solid #ebeced;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  line-height: 50rpx;
+}
+#block1{
+  font-size: 30rpx;
+}
+.payNumber{
+  color: #b9b9b9;
+}
+#block2{
+  font-size: 30rpx;
+  color:#e51c23;
+  text-indent: 1em;
+}
+#block3{
+  font-size: 28rpx;
+  width: 100%;
+}
+#block4{
+  font-size: 28rpx;
+  width: 100%;
+  border-bottom-width: 0rpx;
+}
+.text1{
+  color: #b9b9b9;
+}
+.phoneNum{
+  color: #009a44;
+}

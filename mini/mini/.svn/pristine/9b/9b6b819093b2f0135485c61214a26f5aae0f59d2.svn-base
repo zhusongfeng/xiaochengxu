@@ -1,0 +1,33 @@
+@import "../../common/weui.wxss";
+
+.container{
+  padding-top: 200rpx;
+}
+.page-body{
+  width: 100%;
+}
+.weui-cells:after {
+  border-bottom: 1rpx solid #D9D9D9;
+}
+.weui-cells_after-title{
+  font-size: 32rpx;
+}
+.block{
+  margin-top: 30rpx;
+  margin-bottom: 100rpx;
+}
+.idencode{  
+  color: #509AFF;
+  border-left: 4rpx solid #D9D9D9;
+  padding-top: 20rpx;
+  text-align: center;
+  font-size: 30rpx;
+  height: 100rpx;
+  width: 300rpx;  
+}
+.turntologin{
+  font-size: 28rpx;
+  color: #509AFF;
+  float: right;
+  padding: 40rpx;
+}

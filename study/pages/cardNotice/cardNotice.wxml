@@ -1,0 +1,5 @@
+<view class='container1' style='font-size:30rpx'>
+  <view class="body-view" wx:for="{{rule}}" wx:key="">
+    <text class="text">{{rule[index]}}</text>
+  </view>
+</view>

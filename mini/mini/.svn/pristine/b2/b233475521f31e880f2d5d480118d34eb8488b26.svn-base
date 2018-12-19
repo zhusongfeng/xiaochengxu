@@ -1,0 +1,24 @@
+<view class='container'>
+  <view class='address' wx:for="{{addressList}}" bindtap='back' data-mobile='{{item.mobile}}' data-name='{{item.name}}' data-addressstr='{{item.addressStr}}' data-address_id='{{item.id}}'>
+    <view class='address_info'>
+      <view>
+        <text>{{item.name}}</text>
+        <text style='float:right;margin-right:10rpx;'>{{item.mobile}}</text>
+      </view>
+      <view style='clear:both'></view>
+      <view class='addressList'>{{item.addressStr}}</view>
+        <view class='addressUrl'>
+           <!-- <radio-group class="radio-group" bindchange="radioChange">
+              <label class="radio" wx:for="{{addressList}}">
+                <radio value="{{item.id}}"/>设为默认地址
+              </label>
+            </radio-group> -->
+        </view>
+    </view>
+    <navigator class='icon_back' wx:if='{{!isback}}' url='../addAddress/addAddress?address_id={{item.id}}'>
+      <image src='../../../image/back.png'></image>
+    </navigator>
+  </view>
+  <navigator class='big_bt' url='../addAddress/addAddress'>新增收货地址</navigator>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>

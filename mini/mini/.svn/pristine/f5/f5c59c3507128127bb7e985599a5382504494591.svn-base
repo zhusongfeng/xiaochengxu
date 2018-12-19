@@ -1,0 +1,22 @@
+<view>
+  <view class="container">
+    <view class='search_row'>  
+      <view class="search">    
+        <icon class="searchcion" size='20' type='search'></icon>  
+        <input class="searchinput" placeholder="输入书名/作者/ISBN" bindinput ="searchInput"/>   
+      </view>  
+      <view class='sousuo' bindtap='searchBook'>搜索</view>  
+    </view> 
+  </view>
+  <view class='search_history'>
+    <view class='hot_search'>热门搜索</view>
+    <view class='search_list'>
+      <navigator class='search_item' wx:for="{{hotkey.hotkey}}" wx:key="" url='../searchResult/searchResult?key={{item}}'>{{item}}</navigator>
+    </view>
+    <view class='hot_search' style='margin-top:30rpx;'>历史搜索</view>
+    <view class='search_list'>
+      <navigator class='search_item' wx:for="{{historykey}}" wx:key="" url='../searchResult/searchResult?key={{item}}'>{{item}}</navigator>
+    </view>
+  </view>
+  <view class='clear_search' bindtap='clearHistory'>清空历史搜索</view>
+</view>

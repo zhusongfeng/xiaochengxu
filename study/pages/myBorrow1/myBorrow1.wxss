@@ -1,0 +1,94 @@
+/* pages/component/myBorrow1/myBorrow1.wxss */
+.container1 {
+    display: flex;
+    flex-direction: column;
+    position: 20 rpx 40 rpx;
+}
+
+.swiper-tab {
+    width: 100%;
+    text-align: center;
+    line-height: 80 rpx;
+}
+
+.swiper-tab-list {
+    font-size: 32 rpx;
+    display: inline-block;
+    width: 50%;
+    color: #000000;
+}
+
+.on {
+    color: #509AFF;
+    border-bottom: 5 rpx solid #509AFF;
+}
+
+.swiper-box {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 30 rpx;
+    box-sizing: border-box;
+    padding: 0 !important;
+}
+
+.swiper-item {
+    padding-top: 20 rpx;
+    padding-bottom: 20 rpx;
+    border-bottom: 2 rpx solid #ebeced;
+}
+
+.history-item {
+    padding-bottom: 10 rpx;
+}
+
+.swiper-item-title {
+    display: flex;
+    padding-left: 20 rpx;
+    padding-right: 20 rpx;
+}
+
+.swiper-item-content {
+    display: flex;
+    margin-top: 20 rpx;
+    padding-left: 20 rpx;
+}
+
+.left-item {
+    width: 20%;
+}
+
+.right-item {
+    width: 78%;
+    margin-left: 2%;
+    margin-top: 10 rpx;
+}
+
+.swiper-item-content image {
+    width: 150 rpx;
+    height: 170 rpx;
+}
+
+.book-author, .order-time {
+    font-size: 26 rpx;
+    color: gray;
+    margin-top: 10 rpx;
+}
+
+.button {
+    margin-right: 40 rpx;
+    color: gray;
+    border: 2 rpx solid #ebeced;
+    height: 50 rpx;
+    border-radius: 25 rpx;
+    line-height: 50 rpx;
+    padding-left: 20 rpx;
+    padding-right: 20 rpx;
+    float: right;
+}
+
+.button-special {
+    color: #509AFF;
+    border: 2 rpx solid #509AFF;
+    float: right;
+}

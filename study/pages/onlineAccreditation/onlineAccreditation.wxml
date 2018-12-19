@@ -1,0 +1,90 @@
+<view class="container1">
+    <view class='sdr-tableviewcell organization'>
+        <view class="page-section">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label sdr-tableviewcell_label">请选择机构</view>
+                    </view>
+                    <view class="weui-cell__bd mobile-box-flex-1" style='margin-left:20rpx;'>
+                        <picker bindchange="bindChangeLib" value="{{libIndex}}" range="{{libArray}}" range-key="name">
+                            <view class="weui-input">{{libArray[libIndex].name}}</view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='sdr-tableviewcell'>
+        <view class="sdr-tableviewcell_label">真实姓名</view>
+        <view class="mobile-box-flex-1">
+            <input class='sdr-tableviewcell_input' type='text' placeholder="请输入您的真实姓名"
+                   bindinput="realNameInput" />
+        </view>
+    </view>
+    <view class='sdr-tableviewcell'>
+        <view class="sdr-tableviewcell_label">身份证号码</view>
+        <view class="mobile-box-flex-1">
+            <input class='sdr-tableviewcell_input' type='idcard' placeholder="请输入您的身份证号码"
+                   bindinput="cardnoInput"/>
+        </view>
+    </view>
+    <view class='sdr-tableviewcell'>
+        <view class="sdr-tableviewcell_label">手机号</view>
+        <view class="mobile-box-flex-1">
+            <input class='sdr-tableviewcell_input' type='number' placeholder="请输入您的手机号码"
+                   bindinput="phoneInput"/>
+        </view>
+    </view>
+    <view class='sdr-tableviewcell address'>
+        <view class="sdr-tableviewcell_label">联系地址</view>
+        <view class="mobile-box-flex-1">
+            <input class='sdr-tableviewcell_input' type='text' placeholder="请输入您的联系地址"
+                   bindinput="addressInput"/>
+        </view>
+    </view>
+    <view class='sdr-tableviewcell'>
+        <view class="page-section">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label sdr-tableviewcell_label">请选择职业</view>
+                    </view>
+                    <view class="weui-cell__bd mobile-box-flex-1" style='margin-left:20rpx;'>
+                        <picker bindchange="bindChangeJob" value="{{jobIndex}}" range="{{jobArray}}">
+                            <view class="weui-input">{{jobArray[jobIndex]}}</view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='sdr-tableviewcell education'>
+        <view class="page-section">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label sdr-tableviewcell_label">请选择学历</view>
+                    </view>
+                    <view class="weui-cell__bd mobile-box-flex-1" style='margin-left:20rpx;'>
+                        <picker bindchange="bindChangeEdu" value="{{eduIndex}}" range="{{eduArray}}">
+                            <view class="weui-input">{{eduArray[eduIndex]}}</view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view>
+        <view class="" style='display:flex'>
+            <view class="prompt">点击下一步即同意
+                <navigator style='color:#009a44;display:inline'
+                           url='../cardNotice/cardNotice?org_id={{libArray[libIndex].org_id}}'>《网上办卡须知》
+                </navigator>
+            </view>
+        </view>
+        <text class='notice'>*办卡成功之后我们会以短信的形式告知您卡号及密码，您需下单一次，我们将书和读者卡同时快递给您</text>
+    </view>
+    <view class='big_bt' catchtap='subInfo'>下一步</view>
+    <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>

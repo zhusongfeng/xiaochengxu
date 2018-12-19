@@ -1,0 +1,146 @@
+@import '/app.wxss';
+.input-area{
+  padding: 20rpx 35rpx;
+}
+.navbar{
+  display: flex;
+  border-bottom: 1rpx solid #e5e5e5;
+ 
+}
+.nav-item{
+  position:relative;
+  flex: 1;
+  text-align: center;
+  padding: 10rpx 50rpx 0 50rpx;
+   color: rgba(51,51,51,0.5);
+}
+.nav-item:nth-child(1)::after{
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  height:27rpx;
+  width: 2rpx;
+  background: #333333;
+}
+.nav-item:nth-child(2)::after{
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  height:27rpx;
+  width: 2rpx;
+  background: #333333;
+}
+.nav-item .nav-btn{
+  padding: 20rpx 0;
+}
+.nav-item.active .nav-btn{
+  border-bottom: 4rpx solid #33f;
+  color: rgba(51,51,51,1);
+}
+.swiper{
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+}
+.swiper-wrapper{
+  display: flex;
+  width: 300vw;
+  height: calc(100vh - 190rpx);
+  overflow: hidden;
+  transition: transform .15s;
+  background: #f5f5f5;
+}
+.swiper-wrapper .order-list{
+  flex: 1;
+}
+.order-list{
+  height: 100%;
+}
+.order-list .order-item{
+  display: flex;
+  padding: 25rpx 35rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin-bottom: 22rpx; 
+  background-color: #fff;
+}
+.order-list .order-item:first-child{
+  border-top: none;
+}
+.order-item .thumbnail-wrapper{
+  display:flex;
+  align-items:center;
+  margin-right:40rpx;
+}
+.order-item .thumbnail{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+}
+.order-item .order-details{
+  flex: 1;
+  word-break: break-all;
+}
+.order-details .goods-name{
+  margin-top: 10rpx;
+}
+.order-details .location,
+.order-details .confirm-order-time{
+  margin-top: 12rpx;
+}
+.order-details .confirm-order-time{
+  display: flex;
+}
+.order-details .confirm-order-time .order-date{
+  margin-right: 29rpx;
+}
+.order-result .pay-way{
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 5rpx;
+}
+.order-result .trade-result{
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+.order-result{
+  text-align: right;
+}
+.order-result .trade-result.success{
+  color: #00d10d;
+}
+.order-result .trade-result.fail{
+  color: #ff5959;
+}
+.order-result .goods-price{
+  margin-top: 20rpx;
+  font-size: 20rpx;
+  color: #333;
+}
+.no-data{
+  display: flex;
+  margin: 40rpx 0;
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+  padding: 0 40rpx;
+}
+.no-data::before,
+.no-data::after{
+  content: '';
+  flex: 1;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: relative;
+  top: -14rpx;
+}
+.no-data .inner{
+  padding: 0 40rpx;
+}
+.loading{
+  background-color:#f5f5f5;
+  margin-top: -22rpx;
+}

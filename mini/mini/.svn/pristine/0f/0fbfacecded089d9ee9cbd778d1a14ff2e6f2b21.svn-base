@@ -1,0 +1,41 @@
+.address{
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+  flex-flow:row wrap;
+  font-size: 32rpx;
+  border-bottom: 10rpx solid #ebeced;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+}
+.addressList{
+  margin-top: 10rpx;
+  line-height: 40rpx;
+  width: 100%;
+}
+.icon_address{
+  width: 10%;
+}
+.icon_address image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.icon_back image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.icon1{
+  width: 90rpx;
+}
+.address_info{
+  width: 80%;
+}
+.icon_back{
+  width: 10%;
+  text-align: center;
+}
+.big_bt{
+  position: fixed;
+  bottom: 30rpx;
+}

@@ -1,0 +1,86 @@
+/**index.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx 40rpx;
+  box-sizing: border-box;
+}
+.search_item{
+   width: 90%;
+}
+.search_input{ 
+  width: 80%;
+  height: 64rpx;
+  border: 2rpx solid #ebeced;
+  border-radius: 32rpx;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 64rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  float: right;
+}
+.mine_list{
+  width: 10%;
+  height: 100rpx;
+  float: left;
+  text-align: center;
+}
+.mine{
+  width: 50rpx;
+  height: 50rpx;
+}
+.menu_item {
+  display: flex;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.flex-item{
+  padding-right: 50rpx;
+  padding-left: 50rpx;
+}
+.image{
+  width: 120rpx;
+  height: 120rpx;
+}
+.booklist{
+  width: 100%;
+}
+.title{
+  font-size: 36rpx;
+  padding-top: 40rpx;
+  margin-top: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.more_bt{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.flex-wrp{
+  width: 100%;
+  margin-top: 30rpx;
+}
+.book-item{
+  width: 33.3%;
+  padding-top: 20rpx; 
+  text-align: center;
+}
+.book_image{
+  width: 150rpx;
+  height:160rpx;
+}
+.book_name,.book_author{
+  font-size: 30rpx;
+  overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+  line-height: 50rpx;
+}
+.book_author{
+  color: gray;
+}

@@ -1,0 +1,55 @@
+@import "../common/weui.wxss";
+.container1{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 40rpx;
+}
+.picker{
+  padding: 19rpx 26rpx;
+  background-color: #FFFFFF;
+}
+
+.sdr-tableviewcell{
+  display: flex;
+  -webkit-align-items:center;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid #ebeced;
+}
+.sdr-tableviewcell_label{
+  width: 160rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.mobile-box-flex-1{
+  flex: 1;
+}
+.sdr-tableviewcell_input{
+  padding: 0 20rpx;
+  height: 100rpx;
+  line-height:100rpx;
+  box-sizing: border-box;
+  width:100%;
+}
+.organization{
+  border-top: 2rpx solid #ebeced;
+  border-bottom: 10rpx solid #ebeced;
+}
+.address,.education{
+  border-bottom: 10rpx solid #ebeced;
+}
+.prompt{
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 30rpx;
+}
+.big_bt{
+  text-align: center;
+  width: 400rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #D70B0B;
+  border-radius: 8px;
+  margin: 40rpx auto 0;
+  font-size: 18px;
+  color: #fff;
+}

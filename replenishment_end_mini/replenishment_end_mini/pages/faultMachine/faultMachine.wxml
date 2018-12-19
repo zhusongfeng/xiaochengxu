@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="input-wrap">
+    <e-input value="{{searchValue}}"  bind:complete="queryMachines"
+      bind:input="myInput"></e-input>
+  </view>
+  <view class="fault-scroll-ct">
+  <scroll-view style='height:100%;' scroll-y bindscrolltolower="getBreakDownMachines">
+     <view class="fault-machine-list">
+    <view class="fault-machine" wx:for="{{faultMachine}}" wx:key="{{index}}" data-machine="{{item}}">
+      <view class="machine-display">
+        <image src='{{item.imageUrl}}' class="thumbnail" lazy-load></image>
+        <view class="f20 c6 tc">
+          <text>{{item.terminalCode}}</text>
+        </view>
+      </view>
+      <view class="machine-details">
+        <view class="c3 f26 fb">
+          <text>{{item.hotelName}}</text>
+        </view>
+        <view class="c6 f22">
+          <text>{{item.roomPosition}}</text>
+        </view>
+        <view class="machine-status cr f22">
+          <image class="remind" src="/images/faultMachine/icon_remind@3x.png"></image>
+          <view>机器状态：</view>
+          <image class="wifi" src="/images/faultMachine/icon-wifi@3x.png"></image>
+          <image class="temperature" src="/images/faultMachine/icon-wendu@3x.png"></image>
+        </view>
+      </view>
+      <view class="f20 c6">
+        <view>{{item.createDate}}</view>
+        <view class="cuz">
+          <view wx:if="{{item.terminalBreakDownRecord.type===DOOR_LOCK_BREAKDOWN}}">门锁无法打开故障</view>
+          <view wx:elif="{{item.terminalBreakDownRecord.type===TEMPERATURE_MODE_BREAKDOWN}}">温度模块故障</view>
+          <view wx:else="{{item.terminalBreakDownRecord.type===WIFE_MODE_BREAKDOWN}}">无线模块故障</view>
+        </view>
+      </view>
+
+     </view>
+  </view>
+  <view class="clearfix loading">
+     <loading 
+      show="{{faultMachine.length >= page.pageSize && !page.isLastPage}}">
+    </loading> 
+  </view> 
+  <view class="no-data" wx:if="{{page.isLastPage || !faultMachine.length}}">
+    <view class="inner">暂无更多数据</view>
+  </view>
+  </scroll-view>
+  </view>
+ 
+</view>

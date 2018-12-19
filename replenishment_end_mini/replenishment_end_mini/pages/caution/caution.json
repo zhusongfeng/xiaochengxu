@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "保质期管理",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f5f5f5",
+  "backgroundTextStyle": "dark",
+  "usingComponents":{
+    "machines": "/components/machines/machines",
+    "loading": "/components/loading/loading"
+  }
+}

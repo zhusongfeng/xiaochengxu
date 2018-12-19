@@ -1,0 +1,73 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='search_item'>
+  <navigator class='mine_list' url='../component/mine/mine'>
+    <image class="mine" mode="" src="../../image/wode.png"></image>
+    <view style='font-size:20rpx;'>我的</view>
+</navigator>
+    <navigator url='../component/searchWin/searchWin'>
+      <!-- <icon class="searchcion" size='20' type='search'></icon> -->
+      <input class='search_input' type='text' disabled placeholder='输入书名/作者/ISBN'></input>
+    </navigator>
+    <!-- <navigator class='mine_list' url='../component/mine/mine'>
+      <image class="mine" mode="" src="../../image/wode.png"></image>
+      <view style='font-size:20rpx;'>扫一扫</view>
+    </navigator> -->
+    <view style='clear:both'></view>
+  </view>
+  <!-- <view class='swiper-container'>
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="1000" inputShowed="false" inputVal="" circular="false" current='swiperCurrent' bindchange="swiperChange"> 
+      <block wx:for="{{movies}}">  
+        <swiper-item>  
+          <image src="{{item}}" class="slide-image" bindtap="swipclick" data-index="{index}"/>  
+        </swiper-item>  
+      </block>  
+    </swiper>
+  </view>    -->
+  <view class="menu_item">
+      <view class="flex-item" wx:for="{{menuImgArray}}" wx:key="{{item.id}}" bindtap="{{item.bindtap}}">
+        <image class="image" mode="" src="{{item.imgSrc}}"></image>
+        <view>{{item.menuName}}</view>
+      </view>
+  </view>
+  <view class='booklist'>
+    <view class='title'>
+      <view style='float:left'>{{newbooks.name}}</view>
+       <navigator style='float:right' 
+        url='../component/bookList/bookList?subject_id={{newbooks.id}}'>
+        <image class="more_bt" mode="" src="../../image/genduo.png"></image>
+      </navigator>
+      <view style='clear:both'></view>
+    </view>
+    <view class="section">
+      <view class="flex-wrp">
+        <navigator class="book-item" style='float:left' wx:for="{{newbooks.bookList}}" wx:key="id" url="../component/bookDetail/bookDetail?book_id={{item.id}}">
+          <image class="book_image" mode="" src="{{item.coverimg}}" binderror="errorCoverimg" data-errorimg="{{index}}" ></image>
+          <view class='book_name'>{{item.title}}</view>
+          <view class='book_author' wx:if="{{item.author == null}}">作者：暂无数据{{item.author}}</view>
+          <view class='book_author' wx:if="{{item.author != null}}">作者：{{item.author}}</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class='booklist'>
+    <view class='title'>
+      <view style='float:left'>{{quickbooks.name}}</view>
+      <navigator style='float:right' 
+        url='../component/bookList/bookList?subject_id={{quickbooks.id}}'>
+        <image class="more_bt" mode="" src="../../image/genduo.png"></image>
+      </navigator>
+      <view style='clear:both'></view>
+    </view>
+    <view class="section">
+      <view class="flex-wrp">
+        <navigator class="book-item" style='float:left' wx:for="{{quickbooks.bookList}}" wx:key="id" url="../component/bookDetail/bookDetail?book_id={{item.id}}">
+          <image class="book_image" mode="" src="{{item.coverimg}}" binderror="errorCoverimg" data-errorimg="{{index}}" ></image>
+          <view class='book_name'>{{item.title}}</view>
+          <view class='book_author'>{{item.author}}</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>

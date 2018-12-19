@@ -1,0 +1,22 @@
+<view class="container">
+  <icon type="warn" size="50" color="orange"/>
+  <view class='notice'>审核未通过</view>
+  <view class='block' id='block1'>
+    <view>审核未通过原因：</view>
+    <view>{{reasonList}}</view>
+  </view>
+  <view class='block' id='block2'>
+    <view>读者信息</view>
+    <view>姓名：<text class='text1'>{{name}}</text></view>
+    <view>身份证号：<text class='text1'>{{idcard}}</text></view>
+    <view>手机号：<text class='text1'>{{phone}}</text></view>
+    <view>联系地址：<text class='text1'>{{address}}</text></view>
+  </view>
+  <view class='block' id='block3'>
+    <view>客服热线</view>
+    <view class='phoneNum'>029—89285041</view>
+    <navigator class='big_bt' bindtap='nextTo'>重新提交</navigator>
+  </view>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>
+

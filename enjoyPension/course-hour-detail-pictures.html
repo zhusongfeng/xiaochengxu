@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/loader.js"></script>
+    <link rel="stylesheet" href="css/course-hour-detail-pictures.css"/>
+</head>
+<body>
+<div id="app" class="mui-content">
+    <div class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">课时详情</h1>
+    </div>
+    <header>
+        <img src="img/show.jpg" class="top-img">
+    </header>
+
+    <div class="course-hour-desc">
+        <div class="class-hour-desc-title">
+            <span class="title-number">02</span>
+            <p class="title-name">太极拳教学</p>
+        </div>
+        <div @click="goCourse()" class="class-hour-album">
+            <img src="img/course-detail/logo.jpg" class="album-logo"/>
+            <p class="album-desc">
+                <span class="album-title">太极拳教学</span>
+                <span class="album-date">2018-10-12</span>
+            </p>
+            <p class="go-album">
+                <span class="go-album-title">进入课程</span>
+                <img class="go-album-logo" src="img/course-detail/arrow-right.png"/>
+            </p>
+        </div>
+        <div class="course-hour-content">
+            打开房间打开立方记录卡的时间发的了顺丰就考虑到
+        </div>
+    </div>
+    <div class="course-hour-desc-container">
+        <p class="course-hour-desc-title">课时介绍</p>
+        <div v-for="n in 5" class="course-hour-desc-item">
+            <p class="action">动作{{n}}</p>
+            <img src="img/show-picture.jpg" class="action-img" data-preview-src="" data-preview-group="1"/>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="assets/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="assets/mui/js/mui.min.js"></script>
+<script type="text/javascript" src="assets/vue/vue.min.js"></script>
+<script type="text/javascript" src="js/course-hour-detail-pictures.js"></script>
+</body>
+</html>

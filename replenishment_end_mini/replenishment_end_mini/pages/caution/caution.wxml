@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="list-wrapper">
+    <machines type="caution" machines="{{machines}}"></machines>
+    <view class="clearfix loading">
+      <loading 
+        show="{{isLoading}}">
+      </loading>  
+    </view>
+    <view class="no-more-data" wx:if="{{page.isLastPage && machines.length}}">
+      <view class="inner">暂无更多数据</view>
+    </view>
+  </view>
+   <view class="bottom-buttons tc">
+    <navigator url="/pages/overdueInventory/overdueInventory" style="display: inline-block;">
+      <button class="bottom-button btn-primary">过期清单</button>
+    </navigator>
+  </view>
+</view>

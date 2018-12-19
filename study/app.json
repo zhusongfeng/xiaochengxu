@@ -1,0 +1,51 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/onlineCertificate/onlineCertificate",
+    "pages/searchWin/searchWin",
+    "pages/onlineAccreditation/onlineAccreditation",
+    "pages/myBorrow1/myBorrow1",
+    "pages/login/idencodeLogin/idencodeLogin",
+    "pages/cardNotice/cardNotice",
+    "pages/paySuccess/paySuccess",
+    "pages/payDeposit/payDeposit",
+    "pages/bindBookcard/bindBookcard",
+    "pages/login/passwordLogin/passwordLogin",
+    "pages/bookDetail/bookDetail",
+    "pages/bookList/bookList",
+    "pages/mine/mine",
+    "pages/searchResult/searchResult"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "线上书库",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#767cec",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "书库",
+        "iconPath": "image/tabBar/icon_home page@3x.png",
+        "selectedIconPath": "image/tabBar/icon_home page-selected@3x.png"
+      },
+      {
+        "pagePath": "pages/onlineAccreditation/onlineAccreditation",
+        "text": "在线办证",
+        "iconPath": "image/tabBar/icon_order form@3x.png",
+        "selectedIconPath": "image/tabBar/icon_order form-selected@3x.png"
+      },
+      {
+        "pagePath": "pages/myBorrow1/myBorrow1",
+        "text": "我的",
+        "iconPath": "image/tabBar/icon_myself@3x.png",
+        "selectedIconPath": "image/tabBar/icon_myself-selected@3x.png"
+      }
+    ]
+  },
+  "debug": true
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "鹊客补货",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f5f5f5",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  }
+}

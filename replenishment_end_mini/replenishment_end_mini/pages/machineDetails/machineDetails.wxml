@@ -1,0 +1,146 @@
+<view class="device-detail " bindtap="getEventTarget">
+  <view class="detail-header">
+    <view class="hotel-name f26 c3">
+      <text selectable="{{true}}" class="merchantName">{{device.merchantName}}</text>
+    </view>
+    <view class="position-block f24 c6">
+      <view class="device-position" wx:if="{{!isEditing}}" bindtap="edit">
+        <view class="pos-content" selectable="{{true}}">{{device.roomNum}}</view>
+        <view class="edit">[编辑]</view>
+      </view>
+      <input class="position-input" wx:else focus selection-start="0" selection-end="{{device.roomPosition.length}}" value="{{editValue}}" bindblur="blurPosValue" bindconfirm="modifyPos"></input>
+    </view>
+    <view class="device-status f22 c6">
+      机器状态：
+      <image class="machine-status icon-wifi" src="/images/machine/icon-wifi{{item.status.wifi ? '' : '-error'}}@3x.png">
+      </image>
+      <image class="machine-status icon-temperature" src="/images/machine/icon-wendu{{item.status.temperature ? '' : '-error'}}@3x.png">
+      </image>
+      <image class="machine-status icon-temperature" src="/images/machine/icon-light{{item.status.lightStatus ? '' : '-error'}}@3x.png">
+      </image>
+
+    </view>
+    <view class="f24 c9" style="color:#333 !important;">上一次补货时间：{{device.lastSupplyDate}}</view>
+    <view class="menu {{isMenuOpen ? 'open' : ''}}">
+      <image class="menu-btn" src="/images/device/menu-btn@3x.png" id="menuBtn" catchtap="toggleMenu"></image>
+      <view class="dropbar">
+        <view class="menu-item" wx:for="{{menuItems}}" wx:key="{{index}}" data-command="{{item.command}}" data-fn="{{item.tapFn}}" bindtap="menuTap">
+          <image class="menu-item-icon menu-item-icon{{index+1}}" src="{{item.iconUrl}}"></image>
+          <view class="f22 c3">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="passage-list f24">
+    <view class="passage" wx:for="{{device.passages}}" wx:for-item="passage" wx:key="{{index}}">
+      <view class="image-wrapper" bindtap='showChangeGoods' data-doorNum='{{passage.doorNum}}' data-productname="{{passage.productname}}" data-status="{{passage.status}}">
+        <image class="thumbnail" src="{{passage.imageUrl}}"></image>
+        <view class='change_mask'>更换商品</view>
+      </view>
+      <view class="passage-body f24 c3">
+        <view>{{passage.doorNum}}货道</view>
+        <view class="product-name">{{passage.productName}}</view>
+        <view class="btn-group">
+          <view>状态 :
+            <text class="status" data-door-num="{{passage.doorNum}}" data-item-index="{{index}}" data-hatch-index="{{passage.status}}" bindtap="showStatusDialog"> 
+          <text>{{passage.status==='BREAKDOWN'?"故障":(passage.status==='UNWORKING'?"停售":"正常")}}</text>
+            </text>
+          </view>
+        </view>
+        <view class="expType">{{passage.expStatus == 'EXPIRED'?'过期':(passage.expStatus == 'ACCESS_EXPIRED'?'临保':'')}}</view>
+      </view>
+      <view class="passage-aside">
+        <view class="c6">{{passage.overdueTime}}</view>
+        <view class="c6">{{passage.warnTime}}</view>
+        <button wx:if="{{passage.status=='WORKING' && !passage.sufficient||passage.status=='WORKING' && passage.expStatus=='ACCESS_EXPIRED' ||passage.status=='WORKING' && passage.expStatus=='EXPIRED'}}" class="replenishmentAction" bindtap="replenish" data-doorNum='{{passage.doorNum}}'
+          data-goodsCode="{{passage.goodsCode}}">补货</button>
+        <button wx:else class="disReplenishBtn">补货</button>
+      </view>
+    </view>
+
+  </view>
+</view>
+<dialog class="caution-dialog" visible="{{isStatusDialogShow}}" style="font-size:26rpx !important;">
+  <view slot="header" class="title">更换货道状态</view>
+  <view slot="body" class="body">
+    <picker mode="selector" range="{{hatchStatus}}" range-key="{{'name'}}" value="{{index}}" bindchange="changehatchStatus">
+      货道状态：
+      <view class='hatchInput'>{{hatchStatus[statusIndex].name}}</view>
+    </picker>
+  </view>
+  <view slot="footer" class="buttons">
+    <button class="btn btn-primary" bindtap="setHatchStatus">确认</button>
+    <button class="btn btn-default" data-name="isStatusDialogShow" bindtap="closeDialog">取消</button>
+  </view>
+</dialog>
+<view class="GoogsDialog-wrapper" wx:if="{{isGoogsDialogShow}}">
+  <view class="GoogsDialog">
+    <view class="GoogsDialog-close" bindtap="closeGoogsDialog">X</view>
+    <view class="GoogsDialog-header">
+      更换商品
+    </view>
+    <view class="GoogsDialog-body">
+      <input placeholder='请输入关键字搜索商品' value="{{keywords}}" data-status="{{passage.status}}" bindblur="showChangeGoods" done/>
+      <view class='goods_header'>
+        <view>商品名称</view>
+        <view>价格</view>
+        <view>操作</view>
+      </view>
+      <view class="goods_list">
+        <view wx:for="{{goodsList}}" wx:key="*this">
+          <view>{{item.goodsName}}</view>
+          <view>{{item.goodsPrice}}</view>
+          <button data-goodsCode="{{item.goodsCode}}" data-expType="{{item.expType}}" bindtap="saveGoods">选择</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<dialog class="details-dialog" visible="{{repairDialog}}">
+  <view slot="header" class="title">选择故障类型</view>
+  <view slot="body" class="body">
+    <view style='margin:20rpx;'>
+      <select array="{{['门锁故障','温度模块故障','无线模块故障']}}" selectData="{{faultType}}" bindmyevent="faultTypeChange"></select>
+    </view>
+  </view>
+  <view slot="footer" class="buttons">
+    <button class="btn btn-primary" bindtap="executeRepair">确认</button>
+    <button class="btn btn-default" data-name="isOperateDialogShow" bindtap="closeRepair">取消</button>
+  </view>
+</dialog>
+<dialog class="details-dialog" visible="{{isOperateDialogShow}}">
+  <view slot="header" class="title">{{dialogTitle}}</view>
+  <view slot="body" class="body">
+    <image class="icon-warning" src="/images/device/icon-zhuyi@3x.png"></image>
+    <view class="message">{{message.tips}}
+      <text style="color:#ff5050;">{{message.operator}}</text>
+    </view>
+  </view>
+  <view slot="footer" class="buttons">
+    <button class="btn btn-primary" bindtap="executeCommand">确认</button>
+    <button class="btn btn-default" data-name="isOperateDialogShow" bindtap="closeDialog">取消</button>
+  </view>
+</dialog>
+<!--选择商品保质期或到期时间-->
+<dialog class="caution-dialog" visible="{{isCautionDialogShow}}">
+  <view slot="header" class="title">请选择{{expType==='RELEASE'?"生产日期":(expType==='EXPIRE'?'到期日期':'')}}</view>
+  <view slot="body" class="body">
+    <label class="radio-item" style="margin-left:50rpx;">
+      <picker class="content" mode="date" value="{{targetDate}}" data-type="targetDate" bindchange="changeDate">
+        <view class="w4">{{targetDate[0]}}</view>年
+        <view class="w2">{{targetDate[1]}}</view>月
+        <view class="w2">{{targetDate[2]}}</view>日
+      </picker>
+    </label>
+  </view>
+  <view slot="footer" class="buttons">
+    <button class="btn btn-primary" bindtap="setOverdueDate">确认</button>
+    <button class="btn btn-default" data-name="isCautionDialogShow" bindtap="closeDialog">取消</button>
+  </view>
+</dialog>
+<view class='mask' hidden='{{device.isOnline}}'>
+  <view class='offlineTip'>
+    <image class='img' src='/images/mini_offlineTip.png'></image>
+  </view>
+  <view class='refresh_btn' bindtap='refresh'>刷新</view>
+</view>

@@ -1,0 +1,67 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx 40rpx;
+
+}
+.bookInfo{
+  font-size: 32rpx;
+  text-align: center;
+}
+.bookPic{
+  width: 180rpx;
+  height: 190rpx;
+}
+.bookTitle,.bookAuthor,.bookPrice{
+  width: 600rpx;
+  margin-top: 20rpx;
+  line-height: 50rpx;
+}
+.bookAuthor{
+  color: gray;
+}
+.bookPrice{
+  color: #509AFF;
+}
+.small_bt{
+  margin-top: 20rpx;
+}
+.bookDescribe{
+  width: 100%;
+  font-size: 32rpx;
+  margin-top: 40rpx;
+}
+.bookIntro{
+  text-indent: 2em;
+  line-height: 50rpx;
+}
+.contentInfo{
+  margin-top: 10rpx;
+}
+.contentDetails{
+  color: gray;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.bookDetails{
+  border: 2rpx solid #ebeced;
+  padding: 20rpx;
+  margin-top: 30rpx;
+}
+.infoList{
+  width: 100%;
+  border-bottom: 2rpx solid #ebeced;
+  height: 70rpx;
+  line-height: 90rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.infoList:last-child{
+  border-bottom: 0rpx;
+}
+.infoTitle{
+  color: gray;
+}

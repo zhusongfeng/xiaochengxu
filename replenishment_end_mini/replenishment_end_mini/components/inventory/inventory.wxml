@@ -1,0 +1,93 @@
+<view class="container clearfix">
+  <view class="navbar" bindtap="toggleNav">
+    <view wx:for="{{navBarTitles}}" wx:key="{{index}}" class="nav-item {{currentIndex === index ? 'active': ''}}" data-index="{{index}}">{{item}}
+    </view>
+  </view>
+  <view class="main-wrapper">
+      <view class="main" style="transform: translate3d({{currentIndex * -100}}vw, 0, 0);">
+        <view class="detail-list">
+          <scroll-view bindscrolltolower="detailFunction" scroll-y class="detail-scroll">
+             <view class="detail-item" wx:for="{{inventoryDetails}}" wx:for-item="itemName"  wx:key="{{index}}">
+          <view class="item-row f28 c3">
+            <view>
+              <!-- <view class="item-left">{{item.hotelName||item.merchant.name || item.merchantName}}</view> -->
+              <view class="item-left item-top" wx:if="{{type === 'replenishment'}}">
+               <text class='hotelName' decode="{{true}}">{{itemName.merchantName}}</text><br/>
+               <text class='roomNum'>{{itemName.roomNum || '未知'}}</text>
+               <button size="mini"class="begin-replenishment" data-roomnum ="{{itemName.roomNum}}" data-formurl ="null" bindtap="startReplenishment">开始补货</button>
+              </view>
+              <view class="item-left item-top" wx:if="{{type === 'overdue'}}">
+               <text class='hotelName' decode="{{true}}">{{itemName.merchantName}}</text><br/>
+               <text class='roomNum'>{{itemName.roomNumber || '未知'}}</text>
+               <button size="mini" class="begin-replenishment" data-roomnum ="{{itemName.roomNumber}}" data-formurl ="notNull" bindtap="startReplenishment">更换商品</button>
+              </view>
+            </view>
+            
+          </view>
+          <view class="item-row f24 c6">
+          <!-- 补货清单 -->
+            <view wx:if="{{type === 'replenishment'}}" class='detailName'>
+              <view>货道</view>
+              <view>数量</view>
+              <view>缺货商品名称</view>
+            </view>
+            <view wx:if="{{type === 'replenishment'}}" class='detailList'>
+              <block>
+                  <view class="tr" wx:for="{{itemName.goodsItems}}" wx:key="{{index}}">
+                      <view class="td">{{item.doorNum}}</view>
+                      <view class="td">{{item.countToReplenish}}</view>
+                      <view class="td">{{item.goodsName}}</view>
+                  </view>
+              </block>                       
+            </view>
+           <!-- 警报详情 -->
+       <view class="item-row f24 c6">
+              <view wx:if="{{type === 'overdue'}}" class='detailName detailStatus'>
+              <view>货道</view>
+              <view>商品名称</view>
+              <view>保质期状态</view>
+            </view>
+           <view wx:if="{{type === 'overdue'}}" class='detailList detailListStatus'>
+               <block>
+                   <view class="tr" wx:for="{{itemName.goodsItems}}" wx:key="{{index}}">
+                       <view class="td">{{item.doorNum}}</view>
+                       <view class="td">{{item.goodsName}}</view>
+                       <view class="td">{{item.status==='EXPIRED'?'已过期':(item.status==='ACCESS_EXPIRED'?'临保':'')}}</view>
+                   </view>
+               </block>
+           </view>
+           </view>
+          </view>
+        </view>
+          </scroll-view>
+        <view wx:if="{{!inventoryDetails.length}}" class="no-data full">   
+          <view wx:if="{{type === 'replenishment'}}">暂无需要补货的商品</view>
+          <view wx:else>暂无过期商品</view>
+        </view>
+      </view>
+      <view class="total-list">  
+        <view class="row f30 fb">
+          <view class="column">商品名称</view>
+          <view class="column">品类</view>
+          <view class="column">{{type === 'replenishment' ? '补货' : '过期'}}总计</view>
+        </view>
+        <scroll-view bindscrolltolower="totalFunction" scroll-y class='count-scroll' >
+          <view class="row" wx:for="{{inventoryTotal}}" wx:key="{{index}}">
+          <view class="column  product-name">{{item.goodsName}}</view>
+          <view class="column">{{item.hotelName||'商品'}}</view>
+          <view class="column">{{item.goodsCount}}</view>
+        </view>
+        </scroll-view>
+        <view wx:if="{{!inventoryTotal.length}}" class="no-data">   
+          <view wx:if="{{type === 'replenishment'}}">暂无需要补货的商品</view>
+          <view wx:else>暂无过期商品</view>
+        </view>
+         
+      </view>
+      
+    </view>
+     <loading wx:if="{{loadingShow}}" class="loading" show="{{loadingShow}}">
+     {{loadingShow}}
+     </loading>
+  </view>
+</view>

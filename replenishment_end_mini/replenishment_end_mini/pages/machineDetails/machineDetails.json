@@ -1,0 +1,9 @@
+{
+  "backgroundTextStyle": "white",
+  "navigationBarTitleText": "设备详情",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog",
+    "select":"/components/select/select"
+  }
+}

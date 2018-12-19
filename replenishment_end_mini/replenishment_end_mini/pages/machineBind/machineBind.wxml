@@ -1,0 +1,59 @@
+<!--pages/machineBind/machineBind.wxml-->
+<view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='box'>
+      <view class="item">
+        <view>操作人：</view>
+        <view>
+          {{machineInfo.user}}
+        </view>
+      </view>
+      <view class="item">
+        <view>设备类型 ：</view>
+        <view>
+          <input disabled="true" value='{{machineInfo.terminalType}}' name="machineClass" />
+        </view>
+      </view>
+      <view class="item">
+        <view>设 备 I D ：</view>
+        <view>
+          <input disabled="true" value='{{machineInfo.terminalCode}}' name="terminalCode" />
+        </view>
+      </view>
+      <view  wx-if="{{machineInfo.isbind}}" class="item">
+        <view>当前酒店 ：</view>
+        <view>
+          <input disabled="true" value='{{machineInfo.merchantName}}' name="merchantName" />
+        </view>
+      </view>
+      <view  wx-if="{{!machineInfo.isbind}}" class="item">
+        <view>酒店选择 ：</view>
+        <view>
+          <picker bindchange="bindPickerChange" range-key="name" value="{{index}}" range="{{merchant}}">
+            <view class='merchantName'>
+              {{merchant[index].name}}
+              <image class="downimg" src='../../images/machineBind/icon-xiala@3x.png'></image>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view wx-if="{{machineInfo.isbind}}" class="item">
+        <view>当前房间号：</view>
+        <view>
+          <input disabled="true" value='{{machineInfo.roomNum}}' name="roomNum" />
+        </view>
+      </view>
+      <view class="checkbox">
+        <checkbox-group name="checkbox">
+          <label><checkbox  value="{{machineInfo.isclear}}" checked="{{machineInfo.isclear}}" />清空本设备库存（选中后，设备内货品交给酒店）</label>
+        </checkbox-group>
+      </view>
+      <view class="btn">
+        <button wx-if="{{machineInfo.isbind}}" formType="submit">解除绑定</button>
+        <button wx-if="{{!machineInfo.isbind}}" formType="submit">绑定</button>
+        <button bindtap='cancelBind'>取消</button>
+      </view>
+    </view>
+</form>
+</view>
+

@@ -1,0 +1,17 @@
+<form 
+  class="feedback-form"
+  bindsubmit="feedbackSubmit">
+  <textarea 
+    class="feedback-input"
+    name="feedback"
+    placeholder='您对我们的意见或者建议很重要,谢谢您愿意花时间来让鹊客变得更好'
+    placeholder-style="color: #999;">
+  </textarea>
+  <input 
+    class="contact-input"
+    name="contact"
+    placeholder='请留下你的联系方式，手机、微信、QQ或者E-mail'
+    placeholder-style="color: #999;">
+  </input>
+  <button class="btn-submit btn-primary" form-type="submit">提交</button>
+</form>

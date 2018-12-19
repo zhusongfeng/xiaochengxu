@@ -1,0 +1,94 @@
+.input-wrap{
+  padding: 20rpx 35rpx;
+}
+.input-area{
+  padding: 20rpx 35rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  background-color: #fff;
+  position: fixed;
+  top:0;
+  z-index: 10;
+  margin: 0 20rpx;
+  border: 2px solid red;
+}
+.fault-scroll-ct{
+  height: calc(100vh - 104rpx);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.fault-machine-list{
+  background: #f5f5f5;
+}
+.fault-machine{
+  display: flex;
+  padding: 25rpx 35rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+.fault-machine:last-child{
+  margin-bottom: 0;
+}
+.fault-machine .machine-display{
+  width: 130rpx;
+  margin-right: 40rpx;
+}
+.fault-machine .thumbnail{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 10rpx;
+}
+.fault-machine .machine-details{
+  flex: 1;
+}
+.machine-details>view:not(:last-child){
+  margin-bottom: 20rpx;
+}
+.machine-status{
+  display: flex;
+  align-items: center;
+}
+.machine-status .remind{
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 8rpx;
+}
+.machine-status .wifi{
+  width: 28rpx;
+  height: 22rpx;
+  margin-left: 10rpx;
+}
+.machine-status .temperature{
+  margin-left: 8rpx;
+  width: 22rpx;
+  height: 23rpx;
+}
+.loading{
+  background-color:#f5f5f5;
+  margin-top: -22rpx;
+}
+.no-data{
+  display: flex;
+  margin: 40rpx 0;
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+  padding: 0 40rpx;
+}
+.no-data::before,
+.no-data::after{
+  content: '';
+  flex: 1;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: relative;
+  top: -14rpx;
+}
+.no-data .inner{
+  padding: 0 40rpx;
+}
+.cuz{
+  text-align:right;
+  margin-top:70rpx;
+  color:#333;
+}

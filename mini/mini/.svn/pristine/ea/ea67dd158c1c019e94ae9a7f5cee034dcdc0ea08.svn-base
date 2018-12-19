@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="11" placeholder="请输入您的手机号" bindinput ="phoneInput"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section block">
+      <view class="weui-cells weui-cells_after-title" style='display:flex'>
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" password type="text" placeholder="请输入验证码" bindinput ="codeInput"/>
+        </view>
+        <button class='idencode' disabled='{{disabled}}' bindtap='getVerificationCode'>{{time}}</button>
+      </view>
+    </view>
+    <view class='big_bt' bindtap='loginIn'>登录</view>
+    <navigator class='turntologin' open-type="redirect" url='../passwordLogin/passwordLogin'>账号密码登录</navigator>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/replenishmentInventory/replenishmentInventory",
+    "pages/machineDetails/machineDetails",
+    "pages/index/index",
+    "pages/replenishmentMachine/replenishmentMachine",
+    "pages/caution/caution",
+    "pages/faultMachine/faultMachine",
+    "pages/myself/myself",
+    "pages/feedback/feedback",
+    "pages/overdueInventory/overdueInventory",
+    "pages/orderCenter/orderCenter",
+    "pages/orderDesc/orderDesc",
+    "pages/allMachine/allMachine",
+    "pages/machineBind/machineBind"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": true
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#767cec",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "日常",
+        "iconPath": "images/tabBar/icon_home page@3x.png",
+        "selectedIconPath": "images/tabBar/icon_home page-selected@3x.png"
+      },
+      {
+        "pagePath": "pages/orderCenter/orderCenter",
+        "text": "订单",
+        "iconPath": "images/tabBar/icon_order form@3x.png",
+        "selectedIconPath": "images/tabBar/icon_order form-selected@3x.png"
+      },
+      {
+        "pagePath": "pages/myself/myself",
+        "text": "我的",
+        "iconPath": "images/tabBar/icon_myself@3x.png",
+        "selectedIconPath": "images/tabBar/icon_myself-selected@3x.png"
+      }
+    ]
+  }
+}

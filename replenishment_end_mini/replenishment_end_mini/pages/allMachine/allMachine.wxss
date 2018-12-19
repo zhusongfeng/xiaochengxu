@@ -1,0 +1,50 @@
+@import "/app.wxss";
+.list-wrapper{
+   margin-bottom: 214rpx; 
+}
+.input-area{
+  height: 64rpx;
+
+}
+.scroll-ct{
+  height:calc(100vh - 70rpx);/*这里有个神奇bug减号两边没有空格就会不生效*/
+  overflow:hidden; 
+}
+.bottom-buttons{
+  position: fixed;
+  bottom: 0;
+  background: #f5f5f5;
+  padding: 62rpx 74rpx;
+}
+.bottom-buttons .bottom-button{
+  width: 270rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  font-size: 26rpx;
+}
+.bottom-buttons .bottom-button.btn-primary{
+  margin-right: 60rpx;
+}
+.no-more-data{
+  display: flex;
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+  padding: 40rpx 40rpx 20rpx 40rpx;
+}
+.no-more-data::before,
+.no-more-data::after{
+  content: '';
+  flex: 1;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: relative;
+  top: -14rpx;
+}
+.no-more-data .inner{
+  padding: 0 40rpx;
+}
+.loading{
+  background-color:#f5f5f5;
+  margin-top: -22rpx;
+}

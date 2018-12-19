@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/component/onlineCertificate/onlineCertificate",
+    "pages/component/auditSuccess/auditSuccess",
+    "pages/component/payDeposit/payDeposit",
+    "pages/component/paySuccess/paySuccess",
+    "pages/component/auditFailure/auditFailure",
+    "pages/component/myBorrow/myBorrow",
+    "pages/component/cardNotice/cardNotice",
+    "pages/component/login/passwordLogin/passwordLogin",
+    "pages/component/login/idencodeLogin/idencodeLogin",
+    "pages/component/mine/mine",
+    "pages/component/shuguiLogin/bookcardLogin/bookcardLogin",
+    "pages/component/searchWin/searchWin",
+    "pages/component/bookcard/cardList/cardList",
+    "pages/component/bookcard/bindBookcard/bindBookcard",
+    "pages/component/bookDetail/bookDetail",
+    "pages/component/bookOrder/bookOrder",
+    "pages/component/bookOrderSuccess/bookOrderSuccess",
+    "pages/component/myAddress/myAddress",
+    "pages/component/addAddress/addAddress",
+    "pages/component/selectAddress/selectAddress",
+    "pages/component/bookList/bookList",
+    "pages/component/searchResult/searchResult",
+    "pages/component/myBorrow1/myBorrow1",
+    "pages/component/borrowHistory/borrowHistory",
+    "pages/component/securityVerificate/securityVerificate",
+    "pages/component/setPassword/setPassword",
+    "pages/component/scanUnlock/scanPrompt/scanPrompt",
+    "pages/component/scanUnlock/unlockVerificate/unlockVerificate",
+    "pages/component/orderDetails/orderDetails",
+    "pages/component/_test/test"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "书堆儿",
+    "navigationBarTextStyle": "black"
+  },
+  "debug": true
+}

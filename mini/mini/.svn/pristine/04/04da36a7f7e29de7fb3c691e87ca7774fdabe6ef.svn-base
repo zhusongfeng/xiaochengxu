@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" type='text' placeholder="请输入需解锁的读者证号" bindinput ="cardInput"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section block">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" type='text' placeholder="请输入您的姓名" bindinput ="nameInput"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section block">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" type='idcard' placeholder="请输入您的身份证号" bindinput ="idcardInput"/>
+        </view>
+      </view>
+    </view>
+    <view class='notice'>*认证信息最多能提交3次，若提交次数超过只能24小时后再操作。请确认您的认证信息准确后再提交！</view>
+    <view class='big_bt' bindtap='submit'>提交</view>
+  </view>
+</view>

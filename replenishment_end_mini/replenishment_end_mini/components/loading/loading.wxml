@@ -1,0 +1,4 @@
+<view class="weui-loadmore" wx:if="{{show}}">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">{{tips}}</view>
+</view>

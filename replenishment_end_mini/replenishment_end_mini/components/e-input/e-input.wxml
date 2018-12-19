@@ -1,0 +1,22 @@
+<view 
+  class="e-input-wrap clearfix {{className}}"
+  style="{{customStyle}}">
+  <icon 
+    type="search" 
+    size="18"
+    class="search-icon fl"></icon>
+  <input 
+    class="input-search fl"
+    placeholder='请输入搜索的内容'
+    value="{{value}}"
+    bindblur='handleBlur'
+    bindinput='handleInput'
+    bindconfirm="handleConfirm">
+  </input>
+  <icon
+    wx:if="{{close}}"
+    type="clear"
+    size="18" 
+    class="input-clear {{isShow ? '' : 'hide'}}" 
+    bindtap="handleClearInput">×</icon>
+</view>

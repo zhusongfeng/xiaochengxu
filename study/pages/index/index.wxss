@@ -1,0 +1,144 @@
+/**index.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx 40rpx;
+  box-sizing: border-box;   
+}
+.search_item{
+   width: 100%;  
+}
+.search_input{ 
+  width: 80%;
+  height: 64rpx;
+  border: 2rpx solid #ebeced;
+  border-radius: 32rpx;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 64rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  float: left;
+}
+.mine_list{
+  width: 10%;
+  height: 100rpx;
+  float: left;
+  text-align: center;
+  margin-right: 15rpx;
+}
+.mine{
+  width: 50rpx;
+  height: 50rpx;
+  /* margin-top:10rpx; */
+}
+.menu_item {
+  display: flex;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.flex-item{
+  padding-right: 50rpx;
+  padding-left: 50rpx;
+} 
+.image{
+  width: 120rpx;
+  height: 120rpx;
+}
+.booklist{
+  width: 100%;
+  /* border:1rpx solid red; */
+}
+.title{
+  font-size: 30rpx;
+  padding-top: 0rpx;
+  margin-top: 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #9b9b9b;
+   /* border:1rpx solid green; */
+}
+.more_bt{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.flex-wrp{
+  width: 100%;
+  margin-top: 30rpx;
+  /* border:1rpx solid yellow; */
+}
+.book-item{
+  width: 33.3%;
+  padding-top: 20rpx; 
+  text-align: center;
+  
+}
+.book_image{
+  width: 200rpx;
+  height:250rpx;
+}
+.book_name,.book_author{
+  font-size: 30rpx;
+  overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+  line-height: 50rpx;
+}
+.book_author{
+  color: gray;
+}
+.swiper{
+  width: 100%;
+  height: 500rpx;
+}
+
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+/*样式 */
+.barrage{
+  width:100%;
+  height:50rpx;
+  margin-top:20rpx;
+  position: relative;
+}
+.barraging{
+  width:100%;
+  height:50rpx;
+  position: fixed;
+  left:0;
+  top:0;
+  z-index:100;
+  margin-top:20rpx;
+}
+.barrage .search_item{
+  margin-left:24rpx;
+  height:50rpx;
+  line-height:50rpx;
+  background: rgba(0, 0, 0, 0.6);
+  font-size:26rpx;
+  text-align: center;
+  color:#fff;
+  width:60%;
+  border-radius:30rpx;
+  position:absolute;
+  left:-500rpx;
+}
+.barraging .search_item{
+  margin-left:24rpx;
+  height:50rpx;
+  line-height:50rpx;
+  background: rgba(0, 0, 0, 0.6);
+  font-size:26rpx;
+  text-align: center;
+  color:#fff;
+  width:60%;
+  border-radius:30rpx;
+  position:absolute;
+  left:-500rpx;
+}

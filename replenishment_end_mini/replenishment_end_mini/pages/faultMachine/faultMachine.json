@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "故障机器",
+  "backgroundColor": "#f5f5f5",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "e-input": "/components/e-input/e-input",
+    "loading": "/components/loading/loading"
+  }
+}

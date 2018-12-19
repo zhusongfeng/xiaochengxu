@@ -1,0 +1,31 @@
+.notice{
+  font-size: 40rpx;
+  color: green;
+  margin-top: 20rpx;
+}
+.block{
+  border-bottom: 10rpx solid #ebeced;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  line-height: 50rpx;
+}
+#block1{
+  font-size: 30rpx;
+  text-indent: 1em;
+  color: #009a44;
+}
+#block2{
+  font-size: 28rpx;
+  width: 100%;
+}
+#block3{
+  font-size: 28rpx;
+  width: 100%;
+  border-bottom-width: 0rpx;
+}
+.text1{
+  color: #b9b9b9;
+}
+.phoneNum{
+  color: #009a44;
+}

@@ -1,0 +1,21 @@
+<view class="container">
+  <icon type="success" size="50" color="green"/>
+  <view class='notice'>审核成功</view>
+  <view class='block' id='block1'>
+    <view>审核成功后读者卡号和密码会已短信形式发送到您注册的手机号中，请您注意查收！如未收到短信，请查看是否被安全软件误认为垃圾短信屏蔽掉了。您办卡成功后第一次使用读者证需在线借阅图书，读者证以及押金收据将和图书一起以快递的形式快递到您的手中。如有任何问题，请联系客服。</view>
+  </view>
+  <view class='block' id='block2'>
+    <view>读者信息</view>
+    <view>姓名：<text class='text1'>{{name}}</text></view>
+    <view>身份证号：<text class='text1'>{{idcard}}</text></view>
+    <view>手机号：<text class='text1'>{{phone}}</text></view>
+    <view>联系地址：<text class='text1'>{{address}}</text></view>
+  </view>
+  <view class='block' id='block3'>
+    <view>客服热线</view>
+    <view class='phoneNum'>029—89285041</view>
+    <navigator class='big_bt' url='../../index/index' open-type="redirect" hover-class="other-navigator-hover">确定</navigator>
+  </view>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>
+

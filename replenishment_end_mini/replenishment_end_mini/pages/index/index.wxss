@@ -1,0 +1,71 @@
+/* pages/index/index.wxss */
+.merchant-name{
+  text-align: center;
+  margin-top: 30rpx;
+  font-size: 24rpx;
+}
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 60rpx 0;
+  box-sizing: border-box;
+}
+.container .feature-module{
+  margin: 0 0 45rpx 30rpx;
+}
+.container .feature-box{
+  position: relative;
+  width: 330rpx;
+  height: 220rpx;
+  color: #fff;
+  background-color: rgb(17, 228, 228);
+  border-radius: 10rpx;
+  font-size: 20rpx;
+  box-shadow: 4rpx 5rpx 15rpx 0 #c1c8e6;
+}
+.feature-module .feature-label{
+  margin-top: 20rpx;
+  color: #666;
+  font-size: 26rpx;
+  text-align: center;
+}
+.feature-box image{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 123rpx;
+  height: 121rpx;
+}
+.feature-box .data-count{
+   position: absolute;
+  bottom: 0;
+   right: 14rpx;
+  font-size: 30rpx;
+}
+.data-count .current-count{
+  font-size: 40rpx;
+  display: inline;
+}
+.count-spread{
+  font-size: 26rpx;
+  display: inline;
+}
+.feature-box .bottom-text{
+  position: absolute;
+  bottom: 10rpx;
+  right: 18rpx;
+}
+
+
+.feature-box .feature-label{
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  /* margin-top: 120rpx; */
+  color: #666;
+  font-size: 26rpx;
+  text-align: center;
+}

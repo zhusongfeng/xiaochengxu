@@ -1,0 +1,58 @@
+.dialog-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: 1000;
+}
+.dialog{
+  position: relative;
+  background-color: #fff;
+  box-sizing: border-box;
+  width: 80%;
+  /* min-height: 30vh; */
+  border-radius: 10rpx;
+}
+.dialog-close{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.dialog-close::before,
+.dialog-close::after{
+  content: "";
+  position: absolute; 
+  top: 10rpx;
+  display: block;
+  width: 12rpx;
+  height: 12rpx;
+  border-top: 3rpx solid #999;
+  border-right: 3rpx solid #999;
+}
+.dialog-close::before{
+  left: 3px;
+  transform: rotateZ(45deg); 
+}
+ .dialog-close::after{
+  left: 22rpx;
+   transform: rotateZ(225deg); 
+}  
+.dialog>view{
+  box-sizing: border-box;
+}
+.dialog .dialog-header{
+  padding: 30rpx 20rpx 10rpx 20rpx;
+}
+.dialog .dialog-body{
+  padding: 10rpx 20rpx 20rpx;
+}
+.dialog .dialog-footer{
+  padding: 20rpx;
+}

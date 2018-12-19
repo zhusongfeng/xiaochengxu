@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "补货清单",
+  "usingComponents": {
+    "inventory": "/components/inventory/inventory"
+  }
+}

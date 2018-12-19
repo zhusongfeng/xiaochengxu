@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "e-input": "/components/e-input/e-input"
+  }
+}

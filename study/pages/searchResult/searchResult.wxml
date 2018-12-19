@@ -1,0 +1,21 @@
+
+<view class="container">
+    <scroll-view style='height:100%;' scroll-y="true" bindscrolltolower="getMoreBooks" lower-threshold="50">
+        <navigator class='book' wx:for="{{bookList}}" wx:key="id"  url='../bookDetail/bookDetail?book_id={{item.id}}'>
+            <view class='icon_address'>
+                <image class='icon1' src='{{item.coverimg}}' binderror="errorCoverimg"></image>
+            </view>
+            <view class='address_info'>
+                <view>{{item.title}}</view>
+                <view class='bookAuthor' style='margin-top:10rpx;' wx:if="{{item.author == null}}">作者：暂无数据</view>
+                <view class='bookAuthor' style='margin-top:10rpx;' wx:if="{{item.author != null}}">作者：{{item.author}}</view>
+            </view>
+            <view class='icon_back'>
+                <image src='../../../image/back.png'></image>
+            </view>
+        </navigator>
+        <loading hidden="{{hiddenLoading}}">正在加载</loading>
+    </scroll-view>
+
+
+</view>

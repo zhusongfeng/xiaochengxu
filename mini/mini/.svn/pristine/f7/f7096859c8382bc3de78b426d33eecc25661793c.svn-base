@@ -1,0 +1,138 @@
+// pages/component/myBorrow1/myBorrow1.js
+//获取应用实例  
+var app = getApp()
+Page({
+  data: {
+    List: '',
+    historyList: '',
+    hiddenLoading: false,
+    /** 
+      * 页面配置 
+      */
+    winWidth: 0,
+    winHeight: 0,
+    // tab切换  
+    currentTab: 0,
+    loading: true,
+    hasMore: false,
+    historylist:'',
+    page: 1
+  },
+  onLoad: function () {
+    var _this = this;
+    /** 
+     * 获取系统信息 
+     */
+    wx.getSystemInfo({
+      success: function (res) {
+        _this.setData({
+          winWidth: res.windowWidth,
+          winHeight: res.windowHeight+1000,
+        });
+      }
+    });
+
+    wx.request({
+      url: app.globalData.server + '/api/v5/mini/borrowList',
+      data: {
+        openid: app.globalData.openid,
+        type: 2
+      },
+      success: function (res) {
+        console.log(res);
+        var allList = res.data.list;
+
+        _this.setData({
+          hiddenLoading: true,
+          List: allList
+        });
+      }
+    })
+
+    _this.setData({
+      page: 1,
+      historylist:''
+    });
+    _this.getDataFromServer(_this.data.page, _this.data.historylist);
+  },
+  onShow:function(){  
+    
+  },
+  //获取网络数据的方法
+  getDataFromServer: function (page, historylist) {
+    var _this = this;
+
+    _this.setData({
+      loading: false,
+      hasMore: true
+    })
+    //调用网络请求
+    wx.request({
+      url: app.globalData.server + '/api/v5/mini/borrowList',
+      data: {
+        openid: app.globalData.openid,
+        type: 1,
+        page: page
+      },
+      success: function (res) {
+        if (historylist == "" || historylist == undefined){
+          var historylist = res.data.list;
+        }else{
+          historylist.data.list.push(res.data.list);
+        }
+       
+         _this.setData({
+          historylist: historylist,
+          loading: true, 
+          hasMore: false
+        });
+      }
+    })  
+  },
+  /** 
+     * 滑动切换tab 
+     */
+  bindChange: function (e) {
+    var that = this;
+    that.setData({ currentTab: e.detail.current });
+  },
+  /** 
+   * 点击tab切换 
+   */
+  swichNav: function (e) {
+    var that = this;
+
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+  },
+  //打开订单详情
+  orderDetails:function(){
+    wx.navigateTo({
+      url: '../orderDetails/orderDetails',
+    })
+  },
+  /**
+  * 页面相关事件处理函数--监听用户下拉动作
+  */
+  onPullDownRefresh: function () {
+
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    var _this = this;
+
+    _this.setData({
+      page: _this.data.page + 1,
+      historylist: _this.data.historylist
+    });
+
+    _this.getDataFromServer(_this.data.page, _this.data.historylist);
+  }
+})  

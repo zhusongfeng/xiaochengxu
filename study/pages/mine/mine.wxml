@@ -1,0 +1,42 @@
+<view class="container1">
+  <view class='head'>
+    <image wx:if="{{headpic!=null}}" src='{{headpic}}' class='headpic'></image>
+    <open-data wx:else class='headpic' type="userAvatarUrl"></open-data>
+    <view class='loginhead' bindtap='isLogin'>{{user}}</view>
+    <view class='cancel' bindtap='cancelLogin'>{{userCancel}}</view>
+    <view class='setting' bindtap='setting'>{{setPassword}}</view>
+    <view style='clear:both'></view>
+  </view>
+  <view class="page-section">
+    <navigator class="flex-item news" url='../myBorrow/myBorrow'>
+      <image class='itemPic' src="../../../image/xiaoxi.png"></image>
+      <view class='itemName'>消息</view>
+      <image class='backPic' src="../../../image/back.png"></image>
+    </navigator>
+    <navigator class="flex-item" url='../bookcard/cardList/cardList'>
+      <image class='itemPic' src="../../../image/duzhezhen.png"></image>
+      <view class='itemName'>读者证</view>
+      <image class='backPic' src="../../../image/back.png"></image>
+    </navigator>
+    <navigator class="flex-item" url='../myAddress/myAddress'>
+      <image class='itemPic' src="../../../image/address.png"></image>
+      <view class='itemName'>收货地址</view>
+      <image class='backPic' src="../../../image/back.png"></image>
+    </navigator>
+    <!-- <navigator class="flex-item" url='../borrowHistory/borrowHistory'>
+      <image class='itemPic' src="../../../image/borrowHistory.png"></image>
+      <view class='itemName'>书柜借阅记录</view>
+      <image class='backPic' src="../../../image/back.png"></image>
+    </navigator> -->
+    <button class="flex-item" open-type="contact" plain="false" style='border-top:none;border-left:none;border-right:none;border-bottom: 2rpx solid #ebeced;border-radius:0rpx;'>
+      <image class='itemPic' src="../../../image/onlineService.png"></image>
+      <view class='itemName'>在线客服</view>
+      <image class='backPic' src="../../../image/back.png"></image>
+    </button>
+    <navigator class="flex-item" url='../scanUnlock/scanPrompt/scanPrompt'>
+      <image class='itemPic' src="../../../image/lock.png"></image>
+      <view class='itemName'>解锁读者卡</view>
+      <image class='backPic' src="../../../image/back.png"></image>
+    </navigator>
+  </view>
+</view>

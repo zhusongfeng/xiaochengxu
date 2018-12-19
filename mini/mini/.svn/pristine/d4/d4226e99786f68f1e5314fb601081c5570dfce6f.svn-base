@@ -1,0 +1,58 @@
+/*页面容器*/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 40rpx;
+  box-sizing: border-box;
+}
+.container1{
+  padding-top: 40rpx;
+  padding-left: 40rpx;
+  padding-right: 10rpx;
+}
+.notice{
+  font-size: 28rpx;
+  color: #e51c23;
+  margin-top: 20rpx;
+  display: block;
+  line-height: 40rpx;
+}
+/*提交按钮*/
+.big_bt{
+  width: 650rpx;
+  height: 94rpx;
+  background-color: #509AFF;
+  text-align: center;
+  line-height: 94rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 36rpx;
+  margin: auto auto;
+  margin-top: 50rpx;
+}
+.small_bt{
+  width: 300rpx;
+  height: 70rpx;
+  background-color: #509AFF;
+  text-align: center;
+  line-height: 70rpx;
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 36rpx;
+  margin: auto auto;
+  margin-top: 50rpx;
+}
+.bottom_bt{
+  width: 100%;
+  height: 94rpx;
+  background-color: #509AFF;
+  text-align: center;
+  line-height: 94rpx;
+  color: #fff;
+  font-size: 36rpx;
+  position: fixed;
+  bottom: 0rpx;
+}

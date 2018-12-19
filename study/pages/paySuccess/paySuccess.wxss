@@ -1,0 +1,54 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 40rpx;
+}
+.notice{
+  font-size: 50rpx;
+  color: green;
+  margin-top: 10rpx;
+}
+.block{
+  border-bottom: 10rpx solid #ebeced;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  line-height: 50rpx;
+}
+#block1{
+  font-size: 30rpx;
+}
+.payNumber{
+  color: #b9b9b9;
+}
+#block2{
+  font-size: 30rpx;
+  color:#e51c23;
+  text-indent: 1em;
+}
+#block3{
+  font-size: 28rpx;
+  width: 100%;
+}
+#block4{
+  font-size: 28rpx;
+  width: 100%;
+  border-bottom-width: 0rpx;
+}
+.text1{
+  color: #b9b9b9;
+}
+.phoneNum{
+  color: #009a44;
+}
+
+.big_bt{
+  text-align: center;
+  width: 400rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #D70B0B;
+  border-radius: 8px;
+  margin:40rpx auto 0;
+  font-size: 18px;
+  color: #fff;
+}

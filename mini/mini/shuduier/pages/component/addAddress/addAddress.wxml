@@ -1,0 +1,82 @@
+<view class='container'>
+  <view class='sdr-tableviewcell'>
+    <view class="sdr-tableviewcell_label">联系人</view>
+    <view class="mobile-box-flex-1">
+      <input class='sdr-tableviewcell_input' type='text' placeholder="请输入联系人" 
+      bindinput ="nameInput" value='{{name}}'></input>
+    </view>
+  </view>
+  <view class='sdr-tableviewcell'>
+    <view class="sdr-tableviewcell_label">联系电话</view>
+    <view class="mobile-box-flex-1">
+      <input class='sdr-tableviewcell_input' type='number' placeholder="请输入联系电话" 
+      bindinput ="mobileInput" value='{{mobile}}'></input>
+    </view>
+  </view>
+
+  <view class='sdr-tableviewcell'>
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label sdr-tableviewcell_label">选择省</view>
+            </view>
+            <view class="weui-cell__bd mobile-box-flex-1">
+              <picker bindchange="bindChoosePro" value="{{proIndex}}" range="{{proArray}}" range-key="name">
+                <view class="weui-input sdr-tableviewcell_input">{{proArray[proIndex].name}}</view>
+              </picker>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='sdr-tableviewcell'>
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label sdr-tableviewcell_label">选择市</view>
+            </view>
+            <view class="weui-cell__bd mobile-box-flex-1">
+              <picker bindchange="bindChooseCity" value="{{cityIndex}}" range="{{cityArray}}" 
+                range-key="name">
+                <view class="weui-input sdr-tableviewcell_input">{{cityArray[cityIndex].name}}</view>
+              </picker>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='sdr-tableviewcell'>
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label sdr-tableviewcell_label">选择区/县</view>
+            </view>
+            <view class="weui-cell__bd mobile-box-flex-1">
+              <picker bindchange="bindChooseCounty" value="{{areaIndex}}" range="{{areaArray}}"                   range-key="name" >
+                <view class="weui-input sdr-tableviewcell_input">{{areaArray[areaIndex].name}}</view>
+              </picker>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='sdr-tableviewcell'>
+    <view class="sdr-tableviewcell_label">详细地址</view>
+    <view class="mobile-box-flex-1">
+      <input class='sdr-tableviewcell_input' type='text' placeholder="请输入详细地址" 
+      bindinput ="addressStrInput" value='{{addressStr}}'></input>
+    </view>
+  </view>
+  <view class='cancel' bindtap='cancel'>删除</view>
+  <!-- <view class="radio">
+    <radio value="" checked=""/><text class='text'>设为默认地址</text>
+  </view> -->
+ 
+  <button class="big_bt" bindtap='submit'>提交</button>
+</view>

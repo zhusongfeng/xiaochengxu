@@ -1,0 +1,23 @@
+<view class="merchant-name">当前商户：{{merchant.name}}</view>
+<view class="container">
+  <view class="feature-module" wx:for="{{featureModules}}" wx:key="{{index}}">
+    <view
+      data-url="{{item.url}}"
+      data-formurl="{{index}}"
+      bindtap="navigateToTarget"
+      class="feature-box" 
+      style="background-color:{{item.bgColor}}">
+      <view class="data-count" wx:if="{{item.counts !== undefined}}">
+        <view class="current-count">{{item.counts}}</view>
+        <view class="count-spread">/</view>{{allCount}}
+      </view>
+      <image src="{{item.imageUrl}}"></image>
+      <view class="bottom-text" wx:if="{{item.bottomText}}">{{item.bottomText}}</view>
+    </view> 
+    <view class="feature-label">{{item.label}}</view>
+  </view>
+  <view class='feature-box feature-module' bindtap='machineBind'>
+    <image src='/images/index/icon_scan@3x.png'></image>
+    <view class='feature-label'>设备绑定|解绑</view>
+  </view>
+</view>

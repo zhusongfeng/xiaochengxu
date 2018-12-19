@@ -1,0 +1,30 @@
+.notice{
+  font-size: 40rpx;
+  color: green;
+  margin-top: 20rpx;
+}
+.block{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  line-height: 50rpx;
+}
+#block1{
+  font-size: 30rpx;
+  text-indent: 1em;
+  color: #009a44;
+  margin-top: 30rpx;
+}
+.orderNum{
+  font-size: 30rpx;
+  color: gray;
+  text-align: center;
+}
+.small_bt{
+  background-color: #ebeced;
+  color: #000;
+}
+.back{
+  background-color: #ffffff;
+  color: gray;
+  margin-top: 30rpx;
+}

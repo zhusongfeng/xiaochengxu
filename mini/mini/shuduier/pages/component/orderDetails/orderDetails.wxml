@@ -1,0 +1,25 @@
+<view class='container1'>
+  <view class='item'>订单号：<text class='word'>100008018031200021</text></view>
+  <view class='item'>订单状态：<text class='word' style='color:#e51c23'>已归还</text></view>
+  <view class='item'>下单时间：<text class='word'>2018-03-12 18:10:21</text></view>
+  <view class='item item-address'>收货地址：<text class='word'>陕西省西安市灞桥区陆港大厦C座901</text></view>
+  <view class='swiper-item'>
+    <view class='swiper-item-title'>
+      <view>图书信息</view>
+      <image style='margin-left:auto;margin-right:10rpx; width:30rpx;height:30rpx;' class='backPic' src="../../../image/back.png"></image>
+    </view>
+    <view class='swiper-item-content'>
+      <view class='left-item'>
+        <image src='../../../image/book.png'></image>  
+      </view>
+      <view class='right-item'>
+        <view class='book-title'>拉普拉斯的魔女</view>
+        <view class='book-author'>作者：东野圭吾</view>
+        <view class='book-author'>ISBN：908765437</view>
+      </view>
+    </view>
+  </view>
+  <view class='item'>图书归还机构：<text class='word'>西安图书馆</text></view>
+  <view class='item'>图书馆地址：<text class='word'>西安市未央路145号</text></view>
+  <view class='item'>图书馆电话：<text class='word'>029-86521360</text></view>
+</view>

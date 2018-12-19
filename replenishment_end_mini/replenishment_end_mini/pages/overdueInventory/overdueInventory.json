@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "保质期警报",
+  "usingComponents": {
+    "inventory": "/components/inventory/inventory"
+  }
+}

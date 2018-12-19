@@ -1,0 +1,20 @@
+<view class="container clearfix">
+  <view class="input-area">
+    <e-input value="{{queryValue}}" bind:complete="queryMachines" bind:input="myInput">
+    </e-input>
+  </view>
+  <view class='scroll-ct'>
+    <scroll-view scroll-y style='height:100%;' bindscrolltolower="loadMachines">
+      <view class="list-wrapper">
+        <machines type="replenishment" machines="{{machines}}"></machines>
+        <view class="clearfix loading">
+          <loading show="{{isLoading}}">
+          </loading>
+        </view>
+        <view class="no-more-data" wx:if="{{page.isLastPage && machines.length}}">
+          <view class="inner">暂无更多数据</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+<view class="container">
+  <view style='font-size:34rpx'>小程序暂不支持此功能</view>
+  <view style='color:#509AFF;font-size:34rpx'>更多功能体验请下载“书堆儿”APP</view>
+  <image class='appImg' src='../../../image/APP.png' bindtap='saveImgTest'></image>
+  <view style='font-weight:bolder'>更多功能</view>
+  <view class="title">1.图书续借</view>
+  <view class='content'>图书未在图书馆借阅期限内读完，可在此平台续借，借阅时长自动延长。</view>
+  <view class="title">2.缺书登记</view>
+  <view class='content'>平台搜索不到的图书可进行缺书登记，借阅您最想看的图书。</view>
+  <view class="title">3.积分商城</view>
+  <view class='content'>在APP绑卡、借书、每日签到及分享均可领取积分，积分可在APP积分商城兑换精美礼品。</view>
+  <view class="title">4.电子资源</view>
+  <view class='content'>在线电子书、微刊等海量电子资源方便您的阅读。</view>
+  <view class="title">5.在线办证免押金</view>
+  <view class='content'>部分图书馆不需要缴纳押金，授权支付宝芝麻信用超过600分，即可免押金办证。</view>
+  <loading hidden="{{hiddenLoading}}">正在保存</loading>
+</view>

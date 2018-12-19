@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="user-block">
+    <image class='bg-replace' src='{{bgImgUrl}}'></image>
+    <view class="user-info">
+      <view class="avatar-wrap">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view class="navigator-list">
+    <navigator 
+      wx:for="{{navigatorList}}" 
+      wx:key="{{index}}" 
+      class="navigator-item" 
+      url="{{item.url}}"
+      open-type="{{item.openType || 'navigate'}}">
+      <image class="item-icon" src="{{item.iconUrl}}"></image>
+      <view class="item-name">{{item.name}}</view>
+      <view class="extra-content">{{item.extraContent}}</view>
+    </navigator>
+  </view>
+  <button class="logout-btn btn-primary" bindtap="password">修改登陆密码</button>
+  <button class="logout-btn btn-primary" bindtap="logout">安全退出</button>
+  <dialog class="caution-dialog" visible="{{isShowDialog}}">
+    <view slot="header" class="title">修改登陆密码</view>
+    <view slot="body" class="body">
+      <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class='flex'>
+          <view>原密码：</view>
+          <view>
+            <input name="originPassword" placeholder="输入原密码" password />
+          </view>
+        </view>
+        <view class='flex'>
+          <view>新密码：</view>
+          <view>
+            <input name="newPassword" placeholder="输入新密码" password />
+          </view>
+        </view>
+        <view class='flex'>
+          <view>确认密码：</view>
+          <view>
+            <input name="surePassword" placeholder="输入确认密码" password />
+          </view>
+        </view>
+        <view class="flex formButton">
+          <button formType="submit">提交</button>
+          <button bindtap="closeDialog">取消</button>
+        </view>
+      </form>
+    </view>
+  </dialog>
+</view>

@@ -1,0 +1,35 @@
+<view class="container1">
+  <view class='sdr-tableviewcell organization'>
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label sdr-tableviewcell_label">选择图书馆</view>
+            </view>
+            <view class="weui-cell__bd mobile-box-flex-1">
+              <picker bindchange="bindChangeLib" value="{{libIndex}}" range="{{libArray}}" range-key="name">
+                <view class="weui-input sdr-tableviewcell_input">{{libArray[libIndex].name}}</view>
+              </picker>
+            </view>
+          </view>
+      </view>
+    </view>
+
+  </view>
+  
+  <view class='sdr-tableviewcell'>
+    <view class="sdr-tableviewcell_label">读者证号</view>
+    <view class="mobile-box-flex-1">
+      <input class='sdr-tableviewcell_input' type='number' placeholder="请输入读者证号" bindinput ="cardnoInput"></input>
+    </view>
+  </view>
+  <view class='sdr-tableviewcell'>
+    <view class="sdr-tableviewcell_label">读者证密码</view>
+    <view class="mobile-box-flex-1">
+      <input class='sdr-tableviewcell_input' type='password' placeholder="请输入读者证密码" bindinput ="cardpwdInput"></input>
+    </view>
+  </view>
+  <view class='big_bt' catchtap='binding'>立即绑定</view>
+  <view class=' big_bt_sec' plain="true" catchtap='ecard'>没有读者卡？立即在线办证</view>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</view>
